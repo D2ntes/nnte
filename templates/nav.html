@@ -1,0 +1,65 @@
+<header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href={% url 'index' %}><strong>ННТЭ</strong></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="aboutCompany" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        О компании
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="aboutCompany">
+                        <a class="dropdown-item" href="#">Общая информация</a>
+                        <a class="dropdown-item" href="#">Руководство</a>
+                        <a class="dropdown-item" href="#">Контакты</a>
+                    </div>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="forPeople" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Потребителям
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="forPeople">
+                        <a class="dropdown-item" href="#">Акции для потребителей</a>
+                        <a class="dropdown-item" href={% url 'news' %}>Новости</a>
+                        <a class="dropdown-item" href="#">Подключение</a>
+                        <a class="dropdown-item" href="#">Тарифы</a>
+                        <a class="dropdown-item" href="#">Информация о задолженности</a>
+                        <a class="dropdown-item" href="#">Список подключённых домов</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="information" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Раскрытие информации
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="information">
+                        <a class="dropdown-item" href="#">Теплоснабжение</a>
+                        <a class="dropdown-item" href="#">Горячее водоснабжение</a>
+                        <a class="dropdown-item" href="#">Бланки договоров</a>
+                        <a class="dropdown-item" href="#">Охрана труда</a>
+                        <a class="dropdown-item" href="#">Бухгалтерская отчетность</a>
+                    </div>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="buyInformation" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Закупки
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="buyInformation">
+                        <a class="dropdown-item" href="#">Положение о закупках</a>
+                        <a class="dropdown-item" href="#">План закупок</a>
+                        <a class="dropdown-item" href="#">Размещенные закупки</a>
+                        <a class="dropdown-item" href="#">Сведения о заключенных договорах</a>
+                    </div>
+            </ul>
+            <p class="cke_button">
+                <a class="cke_button_label" href="#">Личный кабинет</a>
+            </p>
+        </div>
+    </nav>
+</header>

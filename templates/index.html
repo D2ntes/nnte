@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="container" id="nnte">
+            <h1>ООО Нижновтеплоэнерго</h1>
+            <p>Компания ООО «Нижновтеплоэнерго» основана в 2006 г. Молодая динамично развивающаяся
+                теплоснабжающая компания.</p>
+        </div>
+    </div>
+
+
+    <div class="container" id="maincontent">
+        <div class="row">
+            <div class="col-sm-10">
+                <div class="container" id="news">
+                    <a href={% url 'news' %}>
+                        <h2>Новости</h2>
+                    </a>
+                    <div class="row">
+
+                        {% for new in list_news %}
+                            <div class="col-sm-6">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h3 class="card-title">{{ new.title_new }}</h3>
+                                        <p class="card-text">{{ new.text_new }}</p>
+                                        <a href="{% url 'news' %}" class="btn btn-primary">Подробнее</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3 class="card-title">Заголовок</h3>
+                                    <p class="card-text">With supporting text below as a natural
+                                        lead-in
+                                        to additional content.</p>
+                                    <a href="#" class="btn btn-primary">Переход</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="container" id="sidecontent">
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>Часто задаваемые вопросы</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+                </p>
+            </div>
+            <div class="col-sm-4">
+                <h3>Подготовка к отопительному сезону</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+            </div>
+            <div class="col-sm-4">
+                <h3>Нормативно-правовая база</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
