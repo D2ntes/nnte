@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7f4c4166-29d1-4803-acf3-3402f51037df" name="Default Changelist" comment="" />
+    <list default="true" id="7f4c4166-29d1-4803-acf3-3402f51037df" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/14c47ed3-4d0d-49cf-8cd1-7e7d626bf16f.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/14c47ed3-4d0d-49cf-8cd1-7e7d626bf16f.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +56,9 @@
         <option value="HTML File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1ZwX5yocqewvcYEw5QFtWVUVN2I" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -134,11 +141,23 @@
       <option name="presentableId" value="Default" />
       <updated>1585750950432</updated>
       <workItem from="1585750979234" duration="20249000" />
-      <workItem from="1585822406764" duration="14244000" />
+      <workItem from="1585822406764" duration="15087000" />
+      <workItem from="1585865477851" duration="318000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
