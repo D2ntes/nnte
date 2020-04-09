@@ -10,10 +10,10 @@ def index(request):
     print(news)
     for new in news:
         object_new = {'id': new.id,
-                      'title_new': new.title_new,
-                      'text_new': new.text_new,
-                      'image_new': new.image_new,
-                      'file_new': new.file_new,
+                      'title': new.title,
+                      'text': new.text,
+                      'image': new.image,
+                      'file': new.file,
                       }
         list_news.append(object_new)
     return render(request, template, context={'list_news': list_news})
@@ -25,10 +25,10 @@ def news(request):
     news = New.objects.all().order_by('-published_at')
     for new in news:
         object_new = {'id': new.id,
-                      'title_new': new.title_new,
-                      'text_new': new.text_new,
-                      'image_new': new.image_new,
-                      'file_new': new.file_new,
+                      'title': new.title,
+                      'text': new.text,
+                      'image': new.image,
+                      'file': new.file,
                       }
         list_news.append(object_new)
 

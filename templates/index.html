@@ -19,13 +19,12 @@
                         <h2>Новости</h2>
                     </a>
                     <div class="row">
-
                         {% for new in list_news %}
                             <div class="col-sm-6">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h3 class="card-title">{{ new.title_new }}</h3>
-                                        <p class="card-text">{{ new.text_new }}</p>
+                                        <h3 class="card-title">{{ new.title }}</h3>
+                                        <p class="card-text">{{ new.text }}</p>
                                         <a href="{% url 'news' %}" class="btn btn-primary">Подробнее</a>
                                     </div>
                                 </div>

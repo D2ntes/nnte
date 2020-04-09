@@ -1,7 +1,7 @@
 astroid==2.3.3
 certifi==2019.11.28
 chardet==3.0.4
-Click==7.0
+Click==7.1.1
 colorama==0.4.3
 entrypoints==0.3
 idna==2.8
@@ -12,7 +12,7 @@ mccabe==0.6.1
 mdown==2019.4.13
 mkdir==2019.4.13
 orderdict==2019.9.25
-Pillow==7.1.0
+Pillow==7.1.1
 public==2019.4.13
 pycodestyle==2.5.0
 readme-md==2019.1.28
@@ -23,3 +23,4 @@ urllib3==1.25.8
 values==2019.4.13
 wrapt==1.11.2
 write==2019.4.13
+Django==3.0.4
