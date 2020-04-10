@@ -31,7 +31,7 @@ def news(request):
                       }
         list_news.append(object_new)
 
-    stops_page, current_page, prev_page_url, next_page_url = pagination(request, list_news)
+    stops_page, current_page, prev_page_url, next_page_url = pagination(request, list_news, 2)
 
     context = {
         'list_news': stops_page,
@@ -47,7 +47,6 @@ def category(request, the_slug):
     template = 'category.html'
     list_articles = []
     category_article = Category.objects.get(slug=the_slug)
-    print(category_article.section)
     articles = Article.objects.filter(category=category_article.id).order_by('-published_at')
     for article in articles:
         object_article = {'id': article.id,
@@ -57,7 +56,7 @@ def category(request, the_slug):
                           }
         list_articles.append(object_article)
 
-    stops_page, current_page, prev_page_url, next_page_url = pagination(request, list_articles)
+    stops_page, current_page, prev_page_url, next_page_url = pagination(request, list_articles, 10)
 
     context = {
         'list_articles': stops_page,
@@ -69,12 +68,12 @@ def category(request, the_slug):
     return render(request, template, context=context)
 
 
-def pagination(request, list_object):
+def pagination(request, list_object, max_object=2):
     if request.GET.get('page'):
         page_number = int(request.GET.get('page'))
     else:
         page_number = 1
-    p = Paginator(list_object, 2)
+    p = Paginator(list_object, max_object)
     if page_number in range(1, p.num_pages):
         stops_page = p.page(page_number)
     else:
