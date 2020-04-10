@@ -13,7 +13,7 @@ def nav_sections(request):
             category_list.append(
                 {'id': category.id, 'title': category.title, 'slug': category.slug})
 
-    section_list.append({'id': section.id, 'title': section.title, 'slug': section.slug,
+        section_list.append({'id': section.id, 'title': section.title, 'slug': section.slug,
                          'category_list': category_list})
 
     return {"section_list": section_list}

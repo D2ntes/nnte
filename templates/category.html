@@ -21,7 +21,7 @@
                                             <div class="container">
                                                     <h3 class="card-title">{{ article.title }}</h3>
                                                 </a>
-                                                <p class="card-text">{{ article.text }}</p>
+                                                <p class="card-text">{{ article.text | safe }}</p>
                                                 {% if article.file == '' %}
                                                 <a href="{{ article.file.url }}"
                                                    class="btn btn-primary">Скачать</a>

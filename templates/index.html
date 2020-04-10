@@ -39,7 +39,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h3 class="card-title">{{ new.title }}</h3>
-                                        <p class="card-text">{{ new.text }}</p>
+                                        <p class="card-text">{{ new.text | safe }}</p>
                                         <a href="{% url 'news' %}" class="btn btn-primary">Подробнее</a>
                                     </div>
                                 </div>

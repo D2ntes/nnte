@@ -7,7 +7,7 @@ class Post(models.Model):
         abstract = True
 
     title = models.CharField(max_length=64, verbose_name='Название', )
-    text = models.CharField(verbose_name='Текст', max_length=256, )
+    text = models.CharField(verbose_name='Текст', max_length=500000, )
     published_at = models.DateTimeField(default=now, editable=True,
                                         verbose_name='Дата публиуации', )
     background = models.ImageField(null=True, blank=True, upload_to='background/',

@@ -21,7 +21,7 @@
                                                     <img src="{{ new.image.url }}" width="200">
                                                     <h3 class="card-title">{{ new.title }}</h3>
                                                 </a>
-                                                <p class="card-text">{{ new.text }}</p>
+                                                <p class="card-text">{{ new.text | safe }}</p>
                                                 <a href="{{ new.file.url }}"
                                                    class="btn btn-primary">Скачать</a>
                                                 {#            <!-- Просмотр в новом окне -->#}
