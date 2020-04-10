@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}
+	{{ category }} - {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="container" id="nnte">
+            <h1>{{ category }}</h1>
+        </div>
+
+        <div class="container" id="maincontent">
+            <div class="row">
+                <div class="col-sm-10">
+                    <div class="container" id="news">
+                        {% for article in list_articles %}
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="container">
+                                                    <h3 class="card-title">{{ article.title }}</h3>
+                                                </a>
+                                                <p class="card-text">{{ article.text }}</p>
+                                                {% if article.file == '' %}
+                                                <a href="{{ article.file.url }}"
+                                                   class="btn btn-primary">Скачать</a>
+                                                {#            <!-- Просмотр в новом окне -->#}
+                                                {#            <a target="_blank"#}
+                                                {#           href="http://docs.google.com/viewer?url={{ new.file_new.url.get_absolute_url }}">Посмотреть</a>#}
+                                                {#            </div>#}
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            {% if prev_page_url %}
+                <a class="button button-primary" href="{{ prev_page_url }}">◀</a>{% endif %}
+            <a class="button disabled" href="">{{ current_page }}</a>
+            {% if next_page_url %}
+                <a class="button button-primary" href="{{ next_page_url }}">▶</a>{% endif %}
+        </div>
+    </div>}
+
+
+{% endblock %}
+
+
+
