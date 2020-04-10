@@ -37,10 +37,24 @@ class Article(Post):
 class Category(models.Model):
     title = models.CharField(max_length=30, verbose_name='Имя', )
     slug = models.SlugField(max_length=30, unique=True)
+    section = models.ForeignKey('Section', on_delete=models.SET_NULL, null=True,
+                                verbose_name='Раздел')
 
     class Meta:
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
+
+    def __str__(self):
+        return f'{self.section} - {self.title}'
+
+
+class Section(models.Model):
+    title = models.CharField(max_length=30, verbose_name='Имя', )
+    slug = models.SlugField(max_length=30, unique=True)
+
+    class Meta:
+        verbose_name = 'Раздел'
+        verbose_name_plural = 'Разделы'
 
     def __str__(self):
         return self.title

@@ -6,9 +6,8 @@ from django.core.paginator import Paginator
 def index(request):
     template = 'index.html'
     list_news = []
-    news = New.objects.all().order_by('-published_at')[:2]
-    print(news)
-    for new in news:
+    news_last = New.objects.all().order_by('-published_at')[:2]
+    for new in news_last:
         object_new = {'id': new.id,
                       'title': new.title,
                       'text': new.text,
@@ -47,8 +46,9 @@ def news(request):
 def category(request, the_slug):
     template = 'category.html'
     list_articles = []
-    category = Category.objects.get(slug=the_slug)
-    articles = Article.objects.filter(category=category.id).order_by('-published_at')
+    category_article = Category.objects.get(slug=the_slug)
+    print(category_article.section)
+    articles = Article.objects.filter(category=category_article.id).order_by('-published_at')
     for article in articles:
         object_article = {'id': article.id,
                           'title': article.title,
@@ -64,9 +64,8 @@ def category(request, the_slug):
         'current_page': current_page,
         'prev_page_url': prev_page_url,
         'next_page_url': next_page_url,
-        'category': category.title,
+        'category': category_article,
     }
-    print(context)
     return render(request, template, context=context)
 
 
