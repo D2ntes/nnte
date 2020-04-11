@@ -21,15 +21,16 @@
                 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                                                            <div class="d-block w-100">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h3 class="card-title">{{ first_new.title }}</h3>
-                                            <p class="card-text">{{ first_new.text | safe }}</p>
-                                            <a href="{% url 'news' %}" class="btn btn-primary">Подробнее</a>
-                                        </div>
+                            <div class="d-block w-100">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h3 class="card-title">{{ first_new.title }}</h3>
+                                        <p class="card-text">{{ first_new.text | safe }}</p>
+                                        <a href="{% url 'news' %}"
+                                           class="btn btn-primary">Подробнее</a>
                                     </div>
                                 </div>
+                            </div>
 
                         </div>
                         {% for new in list_news %}
