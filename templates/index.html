@@ -39,7 +39,9 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h3 class="card-title">{{ new.title }}</h3>
+
                                         <p class="card-text">{{ new.text | safe }}</p>
+
                                         <a href="{% url 'news' %}" class="btn btn-primary">Подробнее</a>
                                     </div>
                                 </div>
@@ -63,20 +65,19 @@
 
     <div class="container" id="sidecontent">
         <div class="row">
-            <div class="col-sm-4">
+            <div class="col-sm-4 border border-secondary">
                 <h3>Часто задаваемые вопросы</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
                 </p>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4 border border-secondary">
                 <h3>Подготовка к отопительному сезону</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </p>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-4 border border-secondary">
                 <h3>Нормативно-правовая база</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
