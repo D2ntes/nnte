@@ -35,19 +35,16 @@
     background-color: #231cff;
 }
 
-
-
 .carousel-control-prev,.carousel-control-next  {
     padding-top: 20em;
     color: #231cff;
 }
 
-
-
-#sidecontent {
-    margin-top: 5em;
-    border: solid black 1px;
+#sidecontent{
+    background-color: #30d3ff;
 }
+
+
 .footer {
     margin-top: 2em;
     background-color: #136771;

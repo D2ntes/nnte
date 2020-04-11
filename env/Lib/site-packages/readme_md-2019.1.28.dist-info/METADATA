@@ -1,0 +1,101 @@
+Metadata-Version: 2.1
+Name: readme-md
+Version: 2019.1.28
+Summary: README.md generator
+Home-page: https://github.com/looking-for-a-job/readme-md.py
+License: UNKNOWN
+Keywords: readme markdown
+Platform: UNKNOWN
+Classifier: License :: Public Domain
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Documentation
+Classifier: Topic :: Software Development :: Documentation
+Description-Content-Type: text/markdown
+Requires-Dist: Click
+Requires-Dist: Markdown
+Requires-Dist: mdown
+Requires-Dist: public
+Requires-Dist: requests
+Requires-Dist: setupcfg
+Requires-Dist: setuptools
+
+[![](https://img.shields.io/pypi/pyversions/readme-md.svg?longCache=True)](https://pypi.org/project/readme-md/)
+
+#### Install
+```bash
+$ [sudo] pip install readme-md
+```
+
+#### Features
++   **`<section-name>.md` sections**
++   **attrs/properties/methods sections** - subclass `readme_md.Readme`
++   **auto headers** - if section 1st line is not empty and not `#` header
++   sections **order** - `Readme.order` or `order.txt`
++   python project ([`setup.cfg`](https://setuptools.readthedocs.io/en/latest/setuptools.html#configuring-setup-using-setup-cfg-files) required) sections - `install`, `classes`, `functions`, `cli`
+
+#### Classes
+`readme_md.Readme` - README.md generator
+
+`Readme` attrs|`__doc__`
+-|-
+`header_lvl`|header default lvl (4)
+`headers`|dict with sections headers (optional)
+`order`|list of sections order
+`sections`|dict with sections (loaded from .md files)
+
+`Readme` methods|`__doc__`
+-|-
+`get_header(name)`|return a string with section header
+`get_section(name)`|return a string with README section
+`get_sections()`|return all sections in a list of (name, string) pairs sorted by `order`
+`load(path)`|load sections and order
+`render()`|render to a string
+`save(path='README.md')`|save to file
+
+#### Functions
+function|`__doc__`
+-|-
+`readme_md.broken_links(string, timeout=5)`|return a list with broken markdown links
+`readme_md.links(string)`|return a list with markdown links
+`readme_md.tables.attrs(cls)`|return a string with class attributes table
+`readme_md.tables.cls(cls)`|return a string with class name, description and attrs+methods+properties tables
+`readme_md.tables.methods(cls)`|return a string with class methods table
+`readme_md.tables.properties(cls)`|return a string with class properties table
+`readme_md.tables.usage(modules)`|return a string with cli modules usage table. `python -m module` or module `USAGE` variable (if defined). `if __name__ == "__main__"` line required
+
+#### CLI
+usage|`__doc__`
+-|-
+`python -m readme_md.broken_links path [timeout]`|print README.md broken links
+`python -m readme_md.create [path ...]`|generate README.md
+`python -m readme_md.links path`|print README.md links
+
+#### Examples
+```bash
+# .README/examples.md, .README/features.md, .README/order.txt
+$ python -m readme_md.create .README > README.md
+$ python -m readme_md.broken_links README.md # find broken links
+```
+
+```python
+class Readme_npm(readme_md.Readme):
+    order = ["description","features","install", ...]
+    disabled = ["generator"]
+
+    @property
+    def install(self):
+        return "`$ [sudo] npm i -g %s`" % json.loads(path)["name"]
+```
+
+```python
+Readme(".README").save("README.md") # load sections and create README.md
+```
+
+<p align="center"><a href="https://pypi.org/project/readme-md/">readme-md</a> - README.md generator</p>
+
