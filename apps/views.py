@@ -6,7 +6,7 @@ from django.core.paginator import Paginator
 def index(request):
     template = 'index.html'
     list_news = []
-    news_last = New.objects.all().order_by('-published_at')[:2]
+    news_last = New.objects.all().order_by('-published_at')[:6]
     for new in news_last:
         object_new = {'id': new.id,
                       'title': new.title,
@@ -15,7 +15,7 @@ def index(request):
                       'file': new.file,
                       }
         list_news.append(object_new)
-    return render(request, template, context={'list_news': list_news})
+    return render(request, template, context={'first_new':list_news[0], 'list_news': list_news[1:]})
 
 
 def news(request):
