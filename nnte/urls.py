@@ -15,15 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from apps.views import index, news
+from apps.views import index, news, category
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
-
+from django.conf.urls import include, url
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
     path('news/', news, name='news'),
+    path('category/<slug:the_slug>/', category, name='category'),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
 # В конце файла:
