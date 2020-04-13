@@ -18,16 +18,20 @@
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="container">
+                                                {% if new.image %}
                                                     <img src="{{ new.image.url }}" width="200">
-                                                    <h3 class="card-title">{{ new.title }}</h3>
+                                                {% endif %}
+                                                <h3 class="card-title">{{ new.title }}</h3>
                                                 </a>
                                                 <p class="card-text">{{ new.text | safe }}</p>
-                                                <a href="{{ new.file.url }}"
-                                                   class="btn btn-primary">Скачать</a>
-                                                {#            <!-- Просмотр в новом окне -->#}
-                                                {#            <a target="_blank"#}
-                                                {#           href="http://docs.google.com/viewer?url={{ new.file_new.url.get_absolute_url }}">Посмотреть</a>#}
-                                                {#            </div>#}
+                                                {% if new.file %}
+                                                    <a href="{{ new.file.url }}"
+                                                       class="btn btn-primary">Скачать</a>
+                                                    {#            <!-- Просмотр в новом окне -->#}
+                                                    {#            <a target="_blank"#}
+                                                    {#           href="http://docs.google.com/viewer?url={{ new.file_new.url.get_absolute_url }}">Посмотреть</a>#}
+                                                    {#            </div>#}
+                                                {% endif %}
                                             </div>
                                         </div>
                                     </div>
