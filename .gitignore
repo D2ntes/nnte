@@ -1,7 +1,5 @@
 /venv/
 /env/
 /.idea/
-/apps/migrations/__pycache__/
-/apps/__pycache__/
-/nnte/__pycache__/
-/__pycache__/
+apps/migrations/__pycache__/
+__pycache__/
