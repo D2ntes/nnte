@@ -21,7 +21,6 @@ class ArticlesAdmin(admin.ModelAdmin):
     list_display = ('title', 'text', 'published_at', 'file', 'category',)
     list_filter = ('category', 'published_at',)
 
-
 @admin.register(New)
 class NewsAdmin(admin.ModelAdmin):
     form = ReviewNew
