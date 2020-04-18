@@ -31,7 +31,7 @@ def news(request):
                       }
         list_news.append(object_new)
 
-    stops_page, current_page, prev_page_url, next_page_url = pagination(request, list_news, 2)
+    stops_page, current_page, prev_page_url, next_page_url = pagination(request, list_news, 5)
 
     context = {
         'list_news': stops_page,
@@ -85,9 +85,17 @@ def pagination(request, list_object, max_object=2):
         if stops_page.has_next() else None
     return stops_page, current_page, prev_page_url, next_page_url
 
+
 def new(request, id_new):
     template = 'new.html'
     new = New.objects.get(id=id_new)
-    print(request, id_new, new)
     context = {'new': new}
+    return render(request, template, context)
+
+
+def article(request, id_article):
+    template = 'article.html'
+    article = Article.objects.get(id=id_article)
+    print(request, id_article, article)
+    context = {'article': article}
     return render(request, template, context)

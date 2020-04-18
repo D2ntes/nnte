@@ -7,7 +7,7 @@ class Post(models.Model):
         abstract = True
 
     title = models.CharField(max_length=64, verbose_name='Название', )
-    text = models.CharField(verbose_name='Текст', max_length=500000, )
+    text = models.CharField(max_length=100000, verbose_name='Текст',)
     published_at = models.DateTimeField(default=now, editable=True,
                                         verbose_name='Дата публиуации', )
     background = models.ImageField(null=True, blank=True, upload_to='background/',
@@ -16,7 +16,7 @@ class Post(models.Model):
 
 class New(Post):
     file = models.FileField(upload_to='news/', null=True, blank=True, verbose_name='Документ')
-    image = models.ImageField(null=True, blank=True, upload_to='image/',
+    image = models.ImageField(upload_to='image/', null=True, blank=True,
                               verbose_name='Изображение', )
 
     class Meta:
@@ -25,8 +25,9 @@ class New(Post):
 
 
 class Article(Post):
-    file = models.FileField(upload_to='article/', null=True, blank=True, verbose_name='Документ')
-    category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True, blank=True,
+    file = models.FileField(upload_to='article/', null=True,  blank=True, verbose_name='Документ')
+    text = models.CharField(null=True, max_length=10000, blank=True, verbose_name='Текст')
+    category = models.ForeignKey('Category', on_delete=models.CASCADE,
                                  verbose_name='Категория')
 
     class Meta:
@@ -37,7 +38,7 @@ class Article(Post):
 class Category(models.Model):
     title = models.CharField(max_length=30, verbose_name='Имя', )
     slug = models.SlugField(max_length=30, unique=True)
-    section = models.ForeignKey('Section', on_delete=models.SET_NULL, null=True,
+    section = models.ForeignKey('Section', on_delete=models.CASCADE, null=True,
                                 verbose_name='Раздел')
 
     class Meta:
