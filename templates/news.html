@@ -21,6 +21,7 @@
                                                 {% if new.image %}
                                                     <img src="{{ new.image.url }}" width="200">
                                                 {% endif %}
+                                                <a href="{% url 'new' new.id %}">
                                                 <h3 class="card-title">{{ new.title }}</h3>
                                                 </a>
                                                 <p class="card-text">{{ new.text | safe }}</p>

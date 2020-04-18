@@ -84,3 +84,10 @@ def pagination(request, list_object, max_object=2):
     next_page_url = f'?page={stops_page.next_page_number()}' \
         if stops_page.has_next() else None
     return stops_page, current_page, prev_page_url, next_page_url
+
+def new(request, id_new):
+    template = 'new.html'
+    new = New.objects.get(id=id_new)
+    print(request, id_new, new)
+    context = {'new': new}
+    return render(request, template, context)

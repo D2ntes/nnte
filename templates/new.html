@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="container" id="news-header">
+                                <h1 class="card-title">{{ new.title }}</h1>
+                                </a>
+        </div>
+
+        <div class="container" id="maincontent">
+            <div class="row">
+                <div class="col-sm-10">
+                    <div class="container" id="new">
+                        <div class="row">
+                            <div class="col-sm-12">
+
+                                {% if new.image %}
+                                    <img src="{{ new.image.url }}" width="200">
+                                {% endif %}
+
+                                <p class="card-text">{{ new.text | safe }}</p>
+                                {% if new.file %}
+                                    <a href="{{ new.file.url }}"
+                                       class="btn btn-primary">Скачать</a>
+                                    {#            <!-- Просмотр в новом окне -->#}
+                                    {#            <a target="_blank"#}
+                                    {#           href="http://docs.google.com/viewer?url={{ new.file_new.url.get_absolute_url }}">Посмотреть</a>#}
+                                    {#            </div>#}
+                                {% endif %}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
