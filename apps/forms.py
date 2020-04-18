@@ -1,5 +1,5 @@
 from django import forms
-from .models import Article, New
+from .models import Article, New, Company
 
 from ckeditor.widgets import CKEditorWidget
 
@@ -25,3 +25,12 @@ class ReviewNew(Review):
         model = New
         fields = ['title', 'published_at', 'file', 'image']
         verbose_name = 'Текст'
+
+
+class ReviewCompany(forms.ModelForm):
+    about = forms.CharField(widget=CKEditorWidget())
+
+    class Meta:
+        model = Company
+        fields = ['name', 'fullname', 'address', 'tel', 'fax', 'about']
+        verbose_name = 'О компании'
