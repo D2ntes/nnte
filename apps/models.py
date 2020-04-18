@@ -10,8 +10,6 @@ class Post(models.Model):
     text = models.CharField(max_length=100000, verbose_name='Текст',)
     published_at = models.DateTimeField(default=now, editable=True,
                                         verbose_name='Дата публиуации', )
-    background = models.ImageField(null=True, blank=True, upload_to='background/',
-                                   verbose_name='Фон', )
 
 
 class New(Post):
@@ -36,9 +34,9 @@ class Article(Post):
 
 
 class Category(models.Model):
-    title = models.CharField(max_length=30, verbose_name='Имя', )
+    title = models.CharField(max_length=30, unique=True, verbose_name='Имя', )
     slug = models.SlugField(max_length=30, unique=True)
-    section = models.ForeignKey('Section', on_delete=models.CASCADE, null=True,
+    section = models.ForeignKey('Section', on_delete=models.CASCADE,
                                 verbose_name='Раздел')
 
     class Meta:

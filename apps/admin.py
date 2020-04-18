@@ -18,13 +18,17 @@ class CategoriesAdmin(admin.ModelAdmin):
 @admin.register(Article)
 class ArticlesAdmin(admin.ModelAdmin):
     form = ReviewArticle
-    list_display = ('title', 'text', 'published_at', 'file', 'category',)
+    fields = ['title',  'category', 'text', 'file', 'published_at', ]
+    list_display = ('title',  'category', 'file', 'published_at',)
     list_filter = ('category', 'published_at',)
+
 
 @admin.register(New)
 class NewsAdmin(admin.ModelAdmin):
     form = ReviewNew
-    list_display = ('title', 'text', 'published_at', 'file', 'image',)
+    fields = ['title', 'text', 'published_at', 'file',]
+    list_display = ('title', 'file', 'published_at',)
+    prepopulated_fields = {"title": ("file",)}
     list_filter = ('published_at',)
 
 

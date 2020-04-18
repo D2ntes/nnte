@@ -16,7 +16,7 @@
                         <h3>{{ article.title }}</h3>
                         </a>
                         <p>{{ article.text | safe }}</p>
-                        {% if article.file == '' %}
+                        {% if article.file %}
                             <a href="{{ article.file.url }}"
                                class="btn btn-primary">Скачать</a>
                             {#            <!-- Просмотр в новом окне -->#}

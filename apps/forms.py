@@ -18,6 +18,7 @@ class ReviewArticle(Review):
         fields = ['title', 'published_at', 'file']
         verbose_name = 'Текст'
 
+
 class ReviewNew(Review):
 
     class Meta:
