@@ -4,3 +4,4 @@
 /apps/__pycache__/
 /apps/migrations/__pycache__/
 /nnte/__pycache__/
+*.pyc
