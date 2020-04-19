@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import New, Article, Category, Section
-from .forms import ReviewArticle, ReviewNew
+from .models import New, Article, Category, Section, Company, Department, Question
+from .forms import ReviewArticle, ReviewNew, ReviewCompany
 
 
 @admin.register(Section)
@@ -18,14 +18,37 @@ class CategoriesAdmin(admin.ModelAdmin):
 @admin.register(Article)
 class ArticlesAdmin(admin.ModelAdmin):
     form = ReviewArticle
-    list_display = ('title', 'text', 'published_at', 'file', 'category',)
+    fields = ['title',  'category', 'text', 'file', 'published_at', ]
+    list_display = ('title',  'category', 'file', 'published_at',)
     list_filter = ('category', 'published_at',)
+
 
 @admin.register(New)
 class NewsAdmin(admin.ModelAdmin):
     form = ReviewNew
-    list_display = ('title', 'text', 'published_at', 'file', 'image',)
+    fields = ['title', 'text', 'published_at', 'file', 'image']
+    list_display = ('title', 'published_at', 'file', 'image',)
     list_filter = ('published_at',)
+
+
+@admin.register(Company)
+class CompanyAdmin(admin.ModelAdmin):
+    form = ReviewCompany
+    list_display = ('name', 'address', 'tel', 'fax', 'email', )
+
+
+@admin.register(Department)
+class DepartmentAdmin(admin.ModelAdmin):
+    fields = ['name',  'address', 'tel', 'fax', 'email', ]
+    list_display = ('name', 'address', 'tel', 'fax', 'email',)
+
+
+@admin.register(Question)
+class QuestionAdmin(admin.ModelAdmin):
+    fields = ['question',  'answer', ]
+    list_display = ('question',  'answer', )
+
+
 
 
 # class OrderHasDetailsInline(admin.TabularInline):

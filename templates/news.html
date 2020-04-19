@@ -2,41 +2,42 @@
 
 {% block content %}
 
-    <div class="container-fluid">
-        <div class="container" id="nnte">
+    <div class="container-fluid" id="nnte">
+        <div class="container-fluid">
             <h1>Новости</h1>
             <p>Новости компании ООО «Нижновтеплоэнерго»</p>
         </div>
+    </div>
 
-        <div class="container" id="maincontent">
-            <div class="row">
-                <div class="col-sm-10">
-                    <div class="container" id="news">
+        <div class="container" id="newscontent">
+            <div class="container" id="news">
                         {% for new in list_news %}
-                            <div class="row">
-                                <div class="col-sm-12">
+
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="container">
+                                                {% if new.image %}
                                                     <img src="{{ new.image.url }}" width="200">
-                                                    <h3 class="card-title">{{ new.title }}</h3>
+                                                {% endif %}
+                                                <a href="{% url 'new' new.id %}">
+                                                <h3 class="card-title">{{ new.title }}</h3>
                                                 </a>
-                                                <p class="card-text">{{ new.text | safe }}</p>
-                                                <a href="{{ new.file.url }}"
-                                                   class="btn btn-primary">Скачать</a>
-                                                {#            <!-- Просмотр в новом окне -->#}
-                                                {#            <a target="_blank"#}
-                                                {#           href="http://docs.google.com/viewer?url={{ new.file_new.url.get_absolute_url }}">Посмотреть</a>#}
-                                                {#            </div>#}
+{#                                                <p class="card-text">{{ new.text | safe }}</p>#}
+                                                {% if new.file %}
+                                                    <a href="{{ new.file.url }}"
+                                                       class="btn btn-primary">Скачать</a>
+                                                    {#            <!-- Просмотр в новом окне -->#}
+                                                    {#            <a target="_blank"#}
+                                                    {#           href="http://docs.google.com/viewer?url={{ new.file_new.url.get_absolute_url }}">Посмотреть</a>#}
+                                                    {#            </div>#}
+                                                {% endif %}
                                             </div>
-                                        </div>
+                                         </div>
+
                                     </div>
-                                </div>
-                            </div>
+
                         {% endfor %}
-                    </div>
-                </div>
-            </div>
+             </div>
         </div>
         <div class="container">
             {% if prev_page_url %}
@@ -45,10 +46,6 @@
             {% if next_page_url %}
                 <a class="button button-primary" href="{{ next_page_url }}">▶</a>{% endif %}
         </div>
-    </div>
-
-
-    </div>
 
 {% endblock %}
 
