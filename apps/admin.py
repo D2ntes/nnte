@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import New, Article, Category, Section, Company, Department
+from .models import New, Article, Category, Section, Company, Department, Question
 from .forms import ReviewArticle, ReviewNew, ReviewCompany
 
 
@@ -41,7 +41,16 @@ class CompanyAdmin(admin.ModelAdmin):
 class DepartmentAdmin(admin.ModelAdmin):
     fields = ['name',  'address', 'tel', 'fax', 'email', ]
     list_display = ('name', 'address', 'tel', 'fax', 'email',)
-    pass
+
+
+@admin.register(Question)
+class QuestionAdmin(admin.ModelAdmin):
+    fields = ['question',  'answer', ]
+    list_display = ('question',  'answer', )
+
+
+
+
 # class OrderHasDetailsInline(admin.TabularInline):
 #     model = DetailOrder
 #     extra = 0

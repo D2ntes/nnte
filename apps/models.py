@@ -7,7 +7,7 @@ class Post(models.Model):
         abstract = True
 
     title = models.CharField(max_length=64, verbose_name='Название', )
-    text = models.CharField(max_length=100000, verbose_name='Текст',)
+    text = models.TextField(max_length=100000, verbose_name='Текст',)
     published_at = models.DateTimeField(default=now, editable=True,
                                         verbose_name='Дата публиуации', )
 
@@ -24,7 +24,7 @@ class New(Post):
 
 class Article(Post):
     file = models.FileField(upload_to='article/', null=True,  blank=True, verbose_name='Документ')
-    text = models.CharField(null=True, max_length=10000, blank=True, verbose_name='Текст')
+    text = models.TextField(null=True, max_length=10000, blank=True, verbose_name='Текст')
     category = models.ForeignKey('Category', on_delete=models.CASCADE,
                                  verbose_name='Категория')
 
@@ -105,3 +105,12 @@ class Department(models.Model):
     class Meta:
         verbose_name = 'Подразделение'
         verbose_name_plural = 'Подразделения'
+
+
+class Question(models.Model):
+    question = models.TextField(max_length=500, unique=True, verbose_name='Вопрос', )
+    answer = models.TextField(max_length=1000, unique=True, verbose_name='Ответ', )
+
+    class Meta:
+        verbose_name = 'Часто задаваемые вопросы'
+        verbose_name_plural = 'Часто задаваемые вопросы'

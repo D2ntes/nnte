@@ -1,7 +1,6 @@
-from .models import Category, Section, Company
+from .models import Category, Section, Company, Question
 from django.contrib import auth
-from django.db.models import Sum
-
+import random
 
 def nav_sections(request):
     sections_nav = Section.objects.all()
@@ -22,3 +21,9 @@ def nav_sections(request):
 def contacts(request):
     contacts_company = Company.objects.all()
     return {'company': contacts_company[0]}
+
+
+def questions(request):
+    questions = Question.objects.all()
+    rand_count = random.randint(0, len(questions) - 2)
+    return {'most_questions': questions[rand_count]}
