@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from apps.views import index, news, category
+from apps.views import index, news, category, new, article
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
@@ -25,6 +25,8 @@ urlpatterns = [
     path('', index, name='index'),
     path('news/', news, name='news'),
     path('category/<slug:the_slug>/', category, name='category'),
+    path('new/<int:id_new>/', new, name='new'),
+    path('article/<int:id_article>/', article, name='article'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
