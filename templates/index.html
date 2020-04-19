@@ -74,25 +74,12 @@
                 </p>
             </div>
         </div>
-        <div class="row justify-content-around">
-            <div class="col-sm-3 border border-secondary m-1">
-                <h3><a href="#">Часто задаваемые вопросы</a></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-            </div>
-            <div class="col-sm-3 border border-secondary m-1">
-                <h3><a href="">Подготовка систем теплопотребления в межотопительный период</a></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-            </div>
-            <div class="col-sm-3 border border-secondary m-1">
-                <h3><a href="">Приборы учета</a></h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-            </div>
-        </div>
+
+        {% block blocks %}
+            {% include 'blocks.html' %}
+        {% endblock %}
+
+
+
     </div>
 {% endblock %}
