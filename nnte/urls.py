@@ -19,7 +19,10 @@ from apps.views import index, news, category, new, article
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
+from django.views.generic import RedirectView
 from django.conf.urls import include, url
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
@@ -28,6 +31,7 @@ urlpatterns = [
     path('new/<int:id_new>/', new, name='new'),
     path('article/<int:id_article>/', article, name='article'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    url(r'^favicon\.ico$', RedirectView.as_view(url='/static/favicon.ico'), name='favicon'),
 ]
 
 # В конце файла:
