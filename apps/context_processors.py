@@ -3,10 +3,10 @@ from django.contrib import auth
 import random
 
 def nav_sections(request):
-    sections_nav = Section.objects.all()
+    sections_nav = Section.objects.filter(visible=True).order_by('sequence')
     section_list = []
     for section in sections_nav:
-        categories = Category.objects.filter(section=section.id).order_by('title')
+        categories = Category.objects.filter(section=section.id, visible=True).order_by('sequence')
         category_list = []
         for category in categories:
             category_list.append(

@@ -7,7 +7,7 @@ class Post(models.Model):
         abstract = True
 
     title = models.CharField(max_length=64, verbose_name='Название', )
-    text = models.TextField(max_length=100000, verbose_name='Текст',)
+    text = models.TextField(max_length=100000, verbose_name='Текст', )
     published_at = models.DateTimeField(default=now, editable=True,
                                         verbose_name='Дата публиуации', )
 
@@ -23,10 +23,10 @@ class New(Post):
 
 
 class Article(Post):
-    file = models.FileField(upload_to='article/', null=True,  blank=True, verbose_name='Документ')
+    file = models.FileField(upload_to='article/', null=True, blank=True, verbose_name='Документ')
     text = models.TextField(null=True, max_length=10000, blank=True, verbose_name='Текст')
-    category = models.ForeignKey('Category', on_delete=models.CASCADE,
-                                 verbose_name='Категория')
+    category = models.ForeignKey('Category', on_delete=models.SET_NULL,
+                                 verbose_name='Категория', related_name='category', null=True, )
 
     class Meta:
         verbose_name = 'Статья'
@@ -36,8 +36,10 @@ class Article(Post):
 class Category(models.Model):
     title = models.CharField(max_length=30, unique=True, verbose_name='Имя', )
     slug = models.SlugField(max_length=30, unique=True)
-    section = models.ForeignKey('Section', on_delete=models.CASCADE,
-                                verbose_name='Раздел')
+    sequence = models.IntegerField(verbose_name='Порядок следования', null=False)
+    section = models.ForeignKey('Section', on_delete=models.SET_NULL,
+                                verbose_name='Раздел', related_name='section', null=True, )
+    visible = models.BooleanField(verbose_name='Видимый', default=True)
 
     class Meta:
         verbose_name = 'Категория'
@@ -50,6 +52,8 @@ class Category(models.Model):
 class Section(models.Model):
     title = models.CharField(max_length=30, verbose_name='Имя', )
     slug = models.SlugField(max_length=30, unique=True)
+    sequence = models.IntegerField(unique=True, verbose_name='Порядок следования')
+    visible = models.BooleanField(verbose_name='Видимый', default=True)
 
     class Meta:
         verbose_name = 'Раздел'
@@ -80,13 +84,14 @@ class About(models.Model):
     address = models.CharField(max_length=100, unique=True, verbose_name='Адрес', )
     tel = models.CharField(max_length=20, unique=True, verbose_name='Телефон', )
     fax = models.CharField(max_length=20, unique=True, verbose_name='Факс', )
-    email = models.CharField(max_length=20, unique=True, verbose_name='E-mail', )
+    email = models.EmailField(max_length=20, unique=True, verbose_name='E-mail', )
 
 
 class Company(SingletonModel, About):
     fullname = models.CharField(max_length=150, unique=True, verbose_name='Полное название', )
-    about = models.TextField(max_length=3000, unique=True, verbose_name='О компании', default='',)
-    important = models.TextField(max_length=3000, unique=True, verbose_name='О компании', default='',)
+    about = models.TextField(max_length=3000, unique=True, verbose_name='О компании', default='', )
+    important = models.TextField(max_length=3000, unique=True, verbose_name='О компании',
+                                 default='', )
 
     class Meta:
         verbose_name = 'Информация о компании'
@@ -99,8 +104,11 @@ class Department(models.Model):
     tel = models.CharField(max_length=20, unique=True, verbose_name='Телефон', )
     fax = models.CharField(max_length=20, unique=True, verbose_name='Факс', )
     email = models.CharField(max_length=20, unique=True, verbose_name='E-mail', )
-    company = models.ForeignKey('Company', on_delete=models.CASCADE,
-                                verbose_name='Компания', default=1)
+    company = models.ForeignKey('Company', on_delete=models.SET_NULL,
+                                verbose_name='Компания', default=1, related_name='company',
+                                null=True, )
+    sequence = models.IntegerField(unique=True, verbose_name='Порядок следования')
+
 
     class Meta:
         verbose_name = 'Подразделение'

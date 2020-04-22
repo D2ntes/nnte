@@ -3,16 +3,30 @@ from .models import New, Article, Category, Section, Company, Department, Questi
 from .forms import ReviewArticle, ReviewNew, ReviewCompany
 
 
+def make_visible(modeladmin, request, queryset):
+    queryset.update(visible=True)
+
+
+make_visible.short_description = "Сделать видимыми"
+
+
+def make_unvisible(modeladmin, request, queryset):
+    queryset.update(visible=False)
+
+make_unvisible.short_description = "Сделать невидимыми"
+
 @admin.register(Section)
 class SectionAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug')
+    list_display = ('title', 'slug', 'sequence', 'visible',)
     prepopulated_fields = {"slug": ("title",)}
+    actions = [make_visible, make_unvisible]
 
 
 @admin.register(Category)
 class CategoriesAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'section')
+    list_display = ('title', 'slug', 'section', 'sequence', 'visible',)
     prepopulated_fields = {"slug": ("title",)}
+    actions = [make_visible, make_unvisible]
 
 
 @admin.register(Article)
@@ -39,15 +53,15 @@ class CompanyAdmin(admin.ModelAdmin):
 
 @admin.register(Department)
 class DepartmentAdmin(admin.ModelAdmin):
-    fields = ['name',  'address', 'tel', 'fax', 'email', ]
+    fields = ['name',  'address', 'tel', 'fax', 'email', 'sequence', ]
     list_display = ('name', 'address', 'tel', 'fax', 'email',)
+    actions = [make_visible, make_unvisible]
 
 
 @admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
     fields = ['question',  'answer', ]
     list_display = ('question',  'answer', )
-
 
 
 
