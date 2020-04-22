@@ -24,7 +24,6 @@ class SectionAdmin(admin.ModelAdmin):
     actions = [make_visible, make_invisible]
 
 
-
 @admin.register(Category)
 class CategoriesAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'section', 'sequence', 'visible',)
