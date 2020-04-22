@@ -10,23 +10,26 @@ def make_visible(modeladmin, request, queryset):
 make_visible.short_description = "Сделать видимыми"
 
 
-def make_unvisible(modeladmin, request, queryset):
+def make_invisible(modeladmin, request, queryset):
     queryset.update(visible=False)
 
-make_unvisible.short_description = "Сделать невидимыми"
+
+make_invisible.short_description = "Сделать невидимыми"
+
 
 @admin.register(Section)
 class SectionAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'sequence', 'visible',)
     prepopulated_fields = {"slug": ("title",)}
-    actions = [make_visible, make_unvisible]
+    actions = [make_visible, make_invisible]
+
 
 
 @admin.register(Category)
 class CategoriesAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'section', 'sequence', 'visible',)
     prepopulated_fields = {"slug": ("title",)}
-    actions = [make_visible, make_unvisible]
+    actions = [make_visible, make_invisible]
 
 
 @admin.register(Article)
@@ -55,7 +58,7 @@ class CompanyAdmin(admin.ModelAdmin):
 class DepartmentAdmin(admin.ModelAdmin):
     fields = ['name',  'address', 'tel', 'fax', 'email', 'sequence', ]
     list_display = ('name', 'address', 'tel', 'fax', 'email',)
-    actions = [make_visible, make_unvisible]
+    actions = [make_visible, make_invisible]
 
 
 @admin.register(Question)
