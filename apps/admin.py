@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import New, Article, Category, Section, Company, Department, Question
 from .forms import ReviewArticle, ReviewNew, ReviewCompany
+from django.utils.safestring import mark_safe
 
 
 def make_visible(modeladmin, request, queryset):
@@ -19,7 +20,7 @@ make_invisible.short_description = "Сделать невидимыми"
 
 @admin.register(Section)
 class SectionAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'sequence', 'visible',)
+    list_display = ('title', 'slug', 'sequence', 'visible', )
     prepopulated_fields = {"slug": ("title",)}
     actions = [make_visible, make_invisible]
 

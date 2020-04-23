@@ -99,11 +99,11 @@ class Company(SingletonModel, About):
 
 
 class Department(models.Model):
-    name = models.CharField(max_length=30, unique=True, verbose_name='Название', )
-    address = models.CharField(max_length=100, unique=True, verbose_name='Адрес', )
-    tel = models.CharField(max_length=20, unique=True, verbose_name='Телефон', )
-    fax = models.CharField(max_length=20, unique=True, verbose_name='Факс', )
-    email = models.CharField(max_length=20, unique=True, verbose_name='E-mail', )
+    name = models.CharField(max_length=30, unique=False, verbose_name='Название', )
+    address = models.CharField(max_length=100, unique=False, verbose_name='Адрес', )
+    tel = models.CharField(max_length=20, unique=False, verbose_name='Телефон', )
+    fax = models.CharField(max_length=20, unique=False, verbose_name='Факс', )
+    email = models.CharField(max_length=20, unique=False, verbose_name='E-mail', )
     company = models.ForeignKey('Company', on_delete=models.SET_NULL,
                                 verbose_name='Компания', default=1, related_name='company',
                                 null=True, )
