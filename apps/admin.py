@@ -30,6 +30,7 @@ class CategoriesAdmin(admin.ModelAdmin):
     list_display = ('title', 'slug', 'section', 'sequence', 'visible',)
     prepopulated_fields = {"slug": ("title",)}
     actions = [make_visible, make_invisible]
+    list_editable = ['visible', 'sequence',]
 
 
 @admin.register(Article)
@@ -40,12 +41,15 @@ class ArticlesAdmin(admin.ModelAdmin):
     list_filter = ('category', 'published_at',)
 
 
+
 @admin.register(New)
 class NewsAdmin(admin.ModelAdmin):
     form = ReviewNew
     fields = ['title', 'text', 'published_at', 'file', 'image']
-    list_display = ('title', 'published_at', 'file', 'image',)
+    list_display = ('title', 'text', 'published_at', 'file', 'image',)
     list_filter = ('published_at',)
+    search_fields = ['title', 'text', ]
+    save_on_top = True
 
 
 @admin.register(Company)
