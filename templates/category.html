@@ -1,33 +1,40 @@
 {% extends 'base.html' %}
-{% block title %}
-    {{ category.title }} - {{ block.super }}
-{% endblock %}
+
+{#{% block title %}#}
+{#    {{ category.title }} - {{ block.super }}#}
+{#{% endblock %}#}
 
 {% block content %}
-    <div class="container-fluid">
-        <div class="container-fluid" id="">
-            <h1>{{ category }}</h1>
-        </div>
-        <div class="container-fluid" id="category">
-            <div class="container-fluid">
-                {% for article in list_articles %}
-                    <div class="container-fluid">
-                        <a href="{% url 'article' article.id %}">
-                        <h3>{{ article.title }}</h3>
-                        </a>
-                        <p>{{ article.text | safe }}</p>
-                        {% if article.file %}
-                            <a href="{{ article.file.url }}"
-                               class="btn btn-primary">Скачать</a>
-                            {#            <!-- Просмотр в новом окне -->#}
-                            {#            <a target="_blank"#}
-                            {#           href="http://docs.google.com/viewer?url={{ new.file_new.url.get_absolute_url }}">Посмотреть</a>#}
-                        {% endif %}
-                    </div>
-                    </div>
-                {% endfor %}
+
+
+
+    <div class="container-fluid" id="nnte">
+        <div class="container-fluid">
+            <h1>{{ category }} </h1>
         </div>
     </div>
+
+
+    <div class="container-fluid" id="category">
+        <div class="container-fluid">
+            {% for article in list_articles %}
+                <div class="container-fluid">
+                    <a href="{% url 'article' article.id %}">
+                        <h3>{{ article.title }}</h3>
+                    </a>
+                    <p>{{ article.text | safe }}</p>
+                    {% if article.file %}
+                        <a href="{{ article.file.url }}"
+                           class="btn btn-primary">Скачать</a>
+                        {#            <!-- Просмотр в новом окне -->#}
+                        {#            <a target="_blank"#}
+                        {#           href="http://docs.google.com/viewer?url={{ new.file_new.url.get_absolute_url }}">Посмотреть</a>#}
+                    {% endif %}
+                </div>
+                </div>
+            {% endfor %}
+    </div>
+
     </div>
 
     <div class="container">
