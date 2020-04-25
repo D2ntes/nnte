@@ -15,7 +15,6 @@
 
 
     <div class="container-fluid" id="maincontent">
-
         <div class="container" id="news">
             <h2 id="news-header">
                 <a href={% url 'news' %}>Новости</a>
@@ -37,10 +36,10 @@
                     <!-- это обертка для элементов карусели -->
                     <div class="carousel-inner" role="listbox">
                         <!-- это элемент карусели -->
-                        <div class="carousel-item active">
+                            <div class="carousel-item active">
                             <!-- это карточка, че внутри ты сам знаешь -->
                             <!-- в такой конфигурации можно и без img, это по желанию -->
-                            <div class="card">
+                                <div class="card">
 {#                                {% if new.image %}#}
 {#                                    <img class="card-img-top" src="{{ first_new.image.url }}"#}
 {#                                         alt={{ first_new.title }}>#}
@@ -52,7 +51,7 @@
                                        class="btn btn-primary">Подробнее</a>
                                 </div>
                             </div>
-                        </div>
+                            </div>
                         {% for new in list_news %}
                             <div class="carousel-item">
                                 <div class="card">
@@ -68,7 +67,6 @@
                                 </div>
                             </div>
                         {% endfor %}
-
                         <!-- это последний элемент -->
                     </div>
                     <!-- это конец содержимого карусели -->
