@@ -17,60 +17,62 @@
             <h2 id="news-header">
                 <a href={% url 'news' %}>Новости</a>
             </h2>
-{#            это просто контейнер#}
+            {#            это просто контейнер#}
             <div class="container-fluid">
-        <div id="carousel-example-multi" class="carousel carousel-multi slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-multi" data-slide-to="0" class="bg-dark active"></li>
-    <li data-target="#carousel-example-multi" data-slide-to="1" class="bg-dark"></li>
-    <li data-target="#carousel-example-multi" data-slide-to="2" class="bg-dark"></li>
-  </ol>
+                <div id="carousel-example-multi" class="carousel carousel-multi slide"
+                     data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-multi" data-slide-to="0"
+                            class="bg-dark active"></li>
+                        <li data-target="#carousel-example-multi" data-slide-to="1"
+                            class="bg-dark"></li>
+                        <li data-target="#carousel-example-multi" data-slide-to="2"
+                            class="bg-dark"></li>
+                    </ol>
 
-  <!-- это обертка для элементов карусели -->
-  <div class="carousel-inner" role="listbox">
-    <!-- это элемент карусели -->
-      <div class="carousel-item active">
-          <!-- это карточка, че внутри ты сам знаешь -->
-          <!-- в такой конфигурации можно и без img, это по желанию -->
-      <div class="card">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">11111</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Переход куда-нибудь</a>
-             </div>
-      </div>
-    </div>
+                    <!-- это обертка для элементов карусели -->
+                    <div class="carousel-inner" role="listbox">
+                        <!-- это элемент карусели -->
+                        <div class="carousel-item active">
+                            <!-- это карточка, че внутри ты сам знаешь -->
+                            <!-- в такой конфигурации можно и без img, это по желанию -->
+                            <div class="card">
+{#                                {% if new.image %}#}
+{#                                    <img class="card-img-top" src="{{ first_new.image.url }}"#}
+{#                                         alt={{ first_new.title }}>#}
+{#                                {% endif %}#}
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ first_new.title }}</h5>
+                                    <p class="card-text">{{ first_new.text | striptags | safe }}</p>
+                                    <a href="{% url 'new' first_new.id %}"
+                                       class="btn btn-primary">Подробнее</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% for new in list_news %}
+                            <div class="carousel-item">
+                                <div class="card">
+{#                                    {% if new.image %}#}
+{#                                        <img class="card-img-top" src="{{ new.image.url }}" alt={{ new.title }}>#}
+{#                                    {% endif %}#}
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ new.title }}</h5>
+                                        <p class="card-text">{{ new.text | striptags | safe }}</p>
+                                        <a href="{% url 'new' new.id %}"
+                                           class="btn btn-primary">Подробнее</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
 
-    <div class="carousel-item">
-      <div class="card">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">22222</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Переход куда-нибудь</a>
-             </div>
-      </div>
-    </div>
-
-    <div class="carousel-item">
-        <div class="card">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">3333</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Переход куда-нибудь</a>
-             </div>
-      </div>
-    </div>
-      <!-- это последний элемент -->
-  </div>
-            <!-- это конец содержимого карусели -->
+                        <!-- это последний элемент -->
+                    </div>
+                    <!-- это конец содержимого карусели -->
+                </div>
+            </div>
         </div>
-    </div>
-        </div>
-      <!-- это конец блока, div ы все нужны тут -->
+        <!-- это конец блока, div ы все нужны тут -->
     </div>
 
 
