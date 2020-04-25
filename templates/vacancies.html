@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {{ list_vacancy }}
+    <div class="container-fluid" id="nnte">
+        <div class="container-fluid">
+            <h1>Вакансии</h1>
+            <p>Вакансии компании ООО «Нижновтеплоэнерго»</p>
+        </div>
+    </div>
+
+    <div class="container" id="">
+        <div class="container" id="">
+            {% for vacancy in list_vacancy %}
+                <div class="card">
+                    <div class="card-body">
+                        <div class="container">
+                            <a href="{% url 'vacancy' vacancy.slug %}">
+                                <h3 class="card-title">{{ vacancy.title }}</h3>
+                            </a>
+                            <p class="card-text">{{ vacancy.description | safe }}</p>
+                            <p>{{ vacancy.published_at | safe }}</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+    <div class="container">
+        {% if prev_page_url %}
+            <a class="button button-primary" href="{{ prev_page_url }}">◀</a>{% endif %}
+        <a class="button disabled" href="">{{ current_page }}</a>
+        {% if next_page_url %}
+            <a class="button button-primary" href="{{ next_page_url }}">▶</a>{% endif %}
+    </div>
+
+{% endblock %}
+
+
+

@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from apps.views import index, news, category, new, article
+from apps.views import index, news, category, new, article, vacancy, vacancies
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
@@ -32,6 +32,8 @@ urlpatterns = [
     path('article/<int:id_article>/', article, name='article'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^favicon\.ico$', RedirectView.as_view(url='/static/favicon.ico'), name='favicon'),
+    path('vacancy/<slug:the_slug>/', vacancy, name='vacancy'),
+    path('vacancies/', vacancies, name='vacancies'),
 ]
 
 # В конце файла:

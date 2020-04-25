@@ -9,7 +9,7 @@ class Post(models.Model):
     title = models.CharField(max_length=64, verbose_name='Название', )
     text = models.TextField(max_length=100000, verbose_name='Текст', )
     published_at = models.DateTimeField(default=now, editable=True,
-                                        verbose_name='Дата публиуации', )
+                                        verbose_name='Дата публикации', )
 
 
 class New(Post):
@@ -34,8 +34,8 @@ class Article(Post):
 
 
 class Category(models.Model):
-    title = models.CharField(max_length=30, unique=True, verbose_name='Имя', )
-    slug = models.SlugField(max_length=30, unique=True)
+    title = models.CharField(max_length=50, unique=True, verbose_name='Имя', )
+    slug = models.SlugField(max_length=50, unique=True)
     sequence = models.IntegerField(verbose_name='Порядок следования', null=False)
     section = models.ForeignKey('Section', on_delete=models.SET_NULL,
                                 verbose_name='Раздел', related_name='section', null=True, )
@@ -109,7 +109,6 @@ class Department(models.Model):
                                 null=True, )
     sequence = models.IntegerField(unique=True, verbose_name='Порядок следования')
 
-
     class Meta:
         verbose_name = 'Подразделение'
         verbose_name_plural = 'Подразделения'
@@ -122,3 +121,16 @@ class Question(models.Model):
     class Meta:
         verbose_name = 'Часто задаваемые вопросы'
         verbose_name_plural = 'Часто задаваемые вопросы'
+
+
+class Vacancy(models.Model):
+    title = models.CharField(max_length=50, unique=True, verbose_name='Назавание', )
+    slug = models.SlugField(max_length=50, unique=True)
+    description = models.TextField(max_length=1000, verbose_name='Описание', )
+    published_at = models.DateTimeField(default=now, editable=True,
+                                        verbose_name='Дата публикации', )
+    visible = models.BooleanField(verbose_name='Видимый', default=True)
+
+    class Meta:
+        verbose_name = 'Вакансия'
+        verbose_name_plural = 'Вакансия'

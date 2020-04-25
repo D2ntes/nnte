@@ -1,6 +1,7 @@
-from .models import Category, Section, Company, Question
+from .models import Category, Section, Company, Question, Vacancy
 from django.contrib import auth
 import random
+
 
 def nav_sections(request):
     sections_nav = Section.objects.filter(visible=True).order_by('sequence')
@@ -27,3 +28,13 @@ def questions(request):
     questions = Question.objects.all()
     rand_count = random.randint(0, len(questions) - 2)
     return {'most_questions': questions[rand_count]}
+
+
+def vacancies(request):
+    vacancies = Vacancy.objects.filter(visible=True).order_by('-published_at')
+    count_obj = 4
+    if len(vacancies) <= count_obj:
+        last_vacancies = vacancies
+    else:
+        last_vacancies = vacancies[:count_obj]
+    return {'last_vacancies': last_vacancies}

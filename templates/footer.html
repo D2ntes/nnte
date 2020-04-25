@@ -4,9 +4,9 @@
             <div class="col-sm-4">
                 <h5>Контакты</h5>
                 <p>{{ company.name }}</p>
-                 <p>{{ company.tel }}</p>
-                 <p>{{ company.fax }}</p>
-                 <p>{{ company.email }}</p>
+                <p>{{ company.tel }}</p>
+                <p>{{ company.fax }}</p>
+                <p>{{ company.email }}</p>
             </div>
             <div class="col-sm-4">
                 <h5>Социальные сети</h5>
@@ -14,7 +14,12 @@
             </div>
             <div class="col-sm-4">
                 <h5>Вакансии</h5>
-                <p>Lorem ipsum dolor</p>
+                {% for vacancy in last_vacancies %}
+                    <p>
+                    <a href={% url 'vacancy' vacancy.slug %}>{{ vacancy.title }}</a>
+                    </p>
+                {% endfor %}
+
             </div>
         </div>
     </div>
