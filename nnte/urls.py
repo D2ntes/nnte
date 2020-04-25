@@ -33,7 +33,7 @@ urlpatterns = [
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^favicon\.ico$', RedirectView.as_view(url='/static/favicon.ico'), name='favicon'),
     path('vacancy/<slug:the_slug>/', vacancy, name='vacancy'),
-    path('vacancies/', vacancies, name='vacancies'),
+    path('/vacancies/', vacancies, name='vacancies'),
 ]
 
 # В конце файла:
