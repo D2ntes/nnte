@@ -53,7 +53,7 @@ class NewsAdmin(admin.ModelAdmin):
 
 @admin.register(Company)
 class CompanyAdmin(admin.ModelAdmin):
-    # form = ReviewCompany
+    form = ReviewCompany
     list_display = ('name', 'address', 'tel', 'fax', 'email',)
 
 

@@ -9,9 +9,13 @@ def index(request):
     count_news = 3
     news_last = New.objects.all().order_by('-published_at')[:count_news]
     for new in news_last:
+        if len(new.text) <= 500:
+            cropped_text = new.text
+        else:
+            cropped_text = new.text[:497] + '...\n'
         object_new = {'id': new.id,
                       'title': new.title,
-                      'text': new.text[:1000]+'...\n',
+                      'text': cropped_text,
                       'image': new.image,
                       'file': new.file,
                       }
