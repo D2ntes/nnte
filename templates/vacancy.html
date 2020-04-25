@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+    <div class="container-fluid" id="nnte">
+        <div class="container-fluid">
+            <a href={% url 'vacancies' %}><h1>Вакансии</h1></a>
+            <p>Вакансии компании ООО «Нижновтеплоэнерго»</p>
+        </div>
+    </div>
     <div class="container-fluid">
         <div class="container" id="">
-                                <h1 class="card-title">{{ vacancy.title }}</h1>
-                                </a>
+            <h1 class="card-title">{{ vacancy.title }}</h1>
+            </a>
         </div>
 
         <div class="container" id="maincontent">

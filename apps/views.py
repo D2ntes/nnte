@@ -6,7 +6,8 @@ from django.core.paginator import Paginator
 def index(request):
     template = 'index.html'
     list_news = []
-    news_last = New.objects.all().order_by('-published_at')[:6]
+    count_news = 3
+    news_last = New.objects.all().order_by('-published_at')[:count_news]
     for new in news_last:
         object_new = {'id': new.id,
                       'title': new.title,
@@ -114,27 +115,17 @@ def article(request, id_article):
 def vacancies(request):
     template = 'vacancies.html'
     list_vacancy = []
-    obj_on_page = 5
     vacancies = Vacancy.objects.all().order_by('-published_at')
     for vacancy in vacancies:
         object_vacancy = {
             'title': vacancy.title,
+            'slug': vacancy.slug,
             'description': vacancy.description,
             'published_at': vacancy.published_at,
         }
         list_vacancy.append(object_vacancy)
-    if len(list_vacancy) > obj_on_page:
-        stops_page, current_page, prev_page_url, next_page_url = pagination(request, list_vacancy,
-                                                                            obj_on_page)
 
-        context = {'news'
-                   'list_news': stops_page,
-                   'current_page': current_page,
-                   'prev_page_url': prev_page_url,
-                   'next_page_url': next_page_url,
-                   }
-    else:
-        context = {'list_vacancy': list_vacancy}
+    context = {'list_vacancy': list_vacancy}
     return render(request, template, context)
 
 
