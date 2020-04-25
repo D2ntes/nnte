@@ -35,7 +35,7 @@ class CategoriesAdmin(admin.ModelAdmin):
 
 @admin.register(Article)
 class ArticlesAdmin(admin.ModelAdmin):
-    form = ReviewArticle
+    # form = ReviewArticle
     fields = ['title', 'category', 'text', 'file', 'published_at', ]
     list_display = ('title', 'category', 'file', 'published_at',)
     list_filter = ('category', 'published_at',)
@@ -43,7 +43,7 @@ class ArticlesAdmin(admin.ModelAdmin):
 
 @admin.register(New)
 class NewsAdmin(admin.ModelAdmin):
-    form = ReviewNew
+    # form = ReviewNew
     fields = ['title', 'text', 'published_at', 'file', 'image']
     list_display = ('title', 'text', 'published_at', 'file', 'image',)
     list_filter = ('published_at',)
@@ -53,7 +53,7 @@ class NewsAdmin(admin.ModelAdmin):
 
 @admin.register(Company)
 class CompanyAdmin(admin.ModelAdmin):
-    form = ReviewCompany
+    # form = ReviewCompany
     list_display = ('name', 'address', 'tel', 'fax', 'email',)
 
 

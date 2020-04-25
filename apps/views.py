@@ -11,7 +11,7 @@ def index(request):
     for new in news_last:
         object_new = {'id': new.id,
                       'title': new.title,
-                      'text': new.text,
+                      'text': new.text[:1000]+'...\n',
                       'image': new.image,
                       'file': new.file,
                       }
