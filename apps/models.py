@@ -17,6 +17,14 @@ class New(Post):
     image = models.ImageField(upload_to='image/', null=True, blank=True,
                               verbose_name='Изображение', )
 
+    def cropped_text(self, count_symbols):
+        if len(self.text) <= count_symbols:
+            description = self.text
+        else:
+            end_symbols = '...'
+            description = self.text[:count_symbols-len(end_symbols)] + end_symbols
+        return description
+
     class Meta:
         verbose_name = 'Новость'
         verbose_name_plural = 'Новости'

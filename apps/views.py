@@ -7,15 +7,11 @@ def index(request):
     template = 'index.html'
     list_news = []
     count_news = 3
-    news_last = New.objects.all().order_by('-published_at')[:count_news]
-    for new in news_last:
-        if len(new.text) <= 500:
-            cropped_text = new.text
-        else:
-            cropped_text = new.text[:497] + '...\n'
+    news = New.objects.all().order_by('-published_at')[:count_news]
+    for new in news:
         object_new = {'id': new.id,
                       'title': new.title,
-                      'text': cropped_text,
+                      'text': new.cropped_text(500),
                       'image': new.image,
                       'file': new.file,
                       }
@@ -32,7 +28,7 @@ def news(request):
     for new in news:
         object_new = {'id': new.id,
                       'title': new.title,
-                      'text': new.text,
+                      'text': new.cropped_text(500),
                       'image': new.image,
                       'file': new.file,
                       }
