@@ -22,9 +22,7 @@
             </div>
         </div>
 
-        {% block blocks %}
-            {% include 'blocks.html' %}
-        {% endblock %}
+
     </div>
 
     <div class="container-fluid" id="maincontent">
@@ -89,7 +87,9 @@
         <!-- это конец блока, div ы все нужны тут -->
     </div>
 
-
+        {% block blocks %}
+            {% include 'blocks.html' %}
+        {% endblock %}
 
 {% endblock %}
 
