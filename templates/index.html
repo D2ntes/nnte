@@ -13,6 +13,19 @@
         </div>
     </div>
 
+    <div class="container-fluid" id="sidecontent">
+        <div class="row">
+            <div class="container">
+                <h2>Добро пожаловать!</h2>
+                <p>{{ company.important | safe }}
+                </p>
+            </div>
+        </div>
+
+        {% block blocks %}
+            {% include 'blocks.html' %}
+        {% endblock %}
+    </div>
 
     <div class="container-fluid" id="maincontent">
         <div class="container" id="news">
@@ -48,7 +61,7 @@
                                     <h5 class="card-title">{{ first_new.title }}</h5>
                                     <p class="card-text">{{ first_new.text | striptags | safe }}</p>
                                     <a href="{% url 'new' first_new.id %}"
-                                       class="btn btn-primary">Подробнее</a>
+                                       class="btn btn-primary float-right">Подробнее</a>
                                 </div>
                             </div>
                             </div>
@@ -62,7 +75,7 @@
                                         <h5 class="card-title">{{ new.title }}</h5>
                                         <p class="card-text">{{ new.text | striptags | safe }}</p>
                                         <a href="{% url 'new' new.id %}"
-                                           class="btn btn-primary">Подробнее</a>
+                                           class="btn btn-primary float-right">Подробнее</a>
                                     </div>
                                 </div>
                             </div>
@@ -77,19 +90,7 @@
     </div>
 
 
-    <div class="container-fluid" id="sidecontent">
-        <div class="row">
-            <div class="container">
-                <h2>Добро пожаловать!</h2>
-                <p>{{ company.important | safe }}
-                </p>
-            </div>
-        </div>
 
-        {% block blocks %}
-            {% include 'blocks.html' %}
-        {% endblock %}
-    </div>
 {% endblock %}
 
 
