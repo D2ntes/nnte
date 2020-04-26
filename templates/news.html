@@ -26,7 +26,7 @@
                                                 <a href="{% url 'new' new.id %}">
                                                 <h3 class="card-title">{{ new.title }}</h3>
                                                 </a>
-                                                    {#<p class="card-text">{{ new.text | safe }}</p>#}
+                                                    <p class="card-text">{{ new.text | safe }}</p>
                                                 {% if new.file %}
                                                     <a href="{{ new.file.url }}"
                                                        class="btn btn-primary">Скачать</a>

@@ -23,7 +23,10 @@
                     <div class="container" id="">
                         <div class="row">
                             <div class="col-sm-12">
-                                <p class="card-text">{{ vacancy.description | safe }}</p>
+                                <p class="card-text"><h4>{{ vacancy.description | safe }}</h4></p>
+                            </div>
+                            <div>
+                                <p><h6>Дата публикации: {{ vacancy.published_at | date:"d M Y" }}</h6></p>
                             </div>
                         </div>
                     </div>
