@@ -57,7 +57,7 @@
 {#                                {% endif %}#}
                                 <div class="card-body">
                                     <h5 class="card-title">{{ first_new.title }}</h5>
-                                    <p class="card-text">{{ first_new.text | striptags | safe }}</p>
+                                    <p class="card-text">{{ first_new.text | safe }}</p>
                                     <a href="{% url 'new' first_new.id %}"
                                        class="btn btn-primary float-right">Подробнее</a>
                                 </div>
@@ -71,7 +71,7 @@
 {#                                    {% endif %}#}
                                     <div class="card-body">
                                         <h5 class="card-title">{{ new.title }}</h5>
-                                        <p class="card-text">{{ new.text | striptags | safe }}</p>
+                                        <p class="card-text">{{ new.text | safe }}</p>
                                         <a href="{% url 'new' new.id %}"
                                            class="btn btn-primary float-right">Подробнее</a>
                                     </div>

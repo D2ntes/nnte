@@ -14,43 +14,60 @@
     </div>
 
 
-            <div class="container" id="news">
-                        {% for new in list_news %}
-                        <div class="row justify-content-center">
-                                    <div class="card w-100">
-                                        <div class="card-body">
-                                            <div class="container">
-                                                {% if new.image %}
-                                                    <img src="{{ new.image.url }}" width="200">
-                                                {% endif %}
-                                                <a href="{% url 'new' new.id %}">
-                                                <h3 class="card-title">{{ new.title }}</h3>
-                                                </a>
-                                                    <p class="card-text">{{ new.text | safe }}</p>
-                                                {% if new.file %}
-                                                    <a href="{{ new.file.url }}"
-                                                       class="btn btn-primary">Скачать</a>
-                                                    {#            <!-- Просмотр в новом окне -->#}
-                                                    {#            <a target="_blank"#}
-                                                    {#           href="http://docs.google.com/viewer?url={{ new.file_new.url.get_absolute_url }}">Посмотреть</a>#}
-                                                    {#            </div>#}
-                                                {% endif %}
-                                            </div>
-                                         </div>
+    <div class="container" id="news">
+        {% for new in list_news %}
+            <div class="row justify-content-center">
+                <div class="card w-100">
+                    <div class="card-body">
+                        <div class="container">
+                            {% if new.image %}
+                                <img src="{{ new.image.url }}" width="200">
+                            {% endif %}
+                            <a href="{% url 'new' new.id %}">
+                                <h3 class="card-title">{{ new.title }}</h3>
+                            </a>
+                            <p class="card-text">{{ new.text | safe }}</p>
+                            {% if new.file %}
+                                <a href="{{ new.file.url }}"
+                                   class="btn btn-primary">Скачать</a>
+                                {#            <!-- Просмотр в новом окне -->#}
+                                {#            <a target="_blank"#}
+                                {#           href="http://docs.google.com/viewer?url={{ new.file_new.url.get_absolute_url }}">Посмотреть</a>#}
+                                {#            </div>#}
+                            {% endif %}
+                        </div>
+                    </div>
 
-                                    </div>
-                          </div>
-                        {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
 
-             </div>
+    </div>
 
+
+
+{#    <nav aria-label="Page navigation example">#}
+{#        <ul class="pagination justify-content-center">#}
+{#            {% if prev_page_url %}#}
+{#                <li class="page-item">#}
+{#                    <a class="page-link" href="{{ prev_page_url }}">Previous</a>#}
+{#                </li>#}
+{#            {% endif %}#}
+{#            <li class="page-item"><a class="page-link" href="{{ current_page }}">1</a></li>#}
+{#            {% if next_page_url %}#}
+{#                <li class="page-item">#}
+{#                    <a class="page-link" href="{{ next_page_url }}">Next</a>#}
+{#                </li>#}
+{#            {% endif %}#}
+{#        </ul>#}
+{#    </nav>#}
 
     <div class="container">
-            {% if prev_page_url %}
-                <a class="button button-primary" href="{{ prev_page_url }}">◀</a>{% endif %}
-            <a class="button disabled" href="">{{ current_page }}</a>
-            {% if next_page_url %}
-                <a class="button button-primary" href="{{ next_page_url }}">▶</a>{% endif %}
+        {% if prev_page_url %}
+            <a class="button button-primary" href="{{ prev_page_url }}">◀</a>{% endif %}
+        <a class="button disabled" href="">{{ current_page }}</a>
+        {% if next_page_url %}
+            <a class="button button-primary" href="{{ next_page_url }}">▶</a>{% endif %}
     </div>
 
 {% endblock %}

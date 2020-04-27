@@ -18,11 +18,25 @@ class New(Post):
                               verbose_name='Изображение', )
 
     def cropped_text(self, count_symbols):
-        if len(self.text) <= count_symbols:
-            description = self.text
+        end_symbols = '...'
+        len_stroke = 120
+        if len(self.text) < count_symbols - len(end_symbols):
+            list_words = []
+            for word in self.text.split():
+                if len(list_words) > len_stroke:
+                    list_words.append('<br />')
+                list_words.append(word)
+            description = ' '.join(list_words)
+
+            while description.count('<br />') <= 4:
+                description+=('<br />')
+            # description = ' '.join(list_words)
+            # description = self.text + ' ' + '&#160' * (
+            #             count_symbols - len(self.text) + len(end_symbols))
+
+
         else:
-            end_symbols = '...'
-            description = self.text[:count_symbols-len(end_symbols)] + end_symbols
+            description = self.text[:count_symbols - len(end_symbols)] + end_symbols
         return description
 
     class Meta:

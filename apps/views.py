@@ -11,7 +11,7 @@ def index(request):
     for new in news:
         object_new = {'id': new.id,
                       'title': new.title,
-                      'text': new.cropped_text(500),
+                      'text': new.cropped_text(400),
                       'image': new.image,
                       'file': new.file,
                       }
@@ -28,7 +28,7 @@ def news(request):
     for new in news:
         object_new = {'id': new.id,
                       'title': new.title,
-                      'text': new.cropped_text(500),
+                      'text': new.cropped_text(1500),
                       'image': new.image,
                       'file': new.file,
                       }
