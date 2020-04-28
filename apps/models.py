@@ -17,26 +17,25 @@ class New(Post):
     image = models.ImageField(upload_to='image/', null=True, blank=True,
                               verbose_name='Изображение', )
 
-    def cropped_text(self, count_symbols):
+    def cropped_text(self, count_stroke, len_stroke):
         end_symbols = '...'
-        len_stroke = 120
-        if len(self.text) < count_symbols - len(end_symbols):
-            list_words = []
-            for word in self.text.split():
-                if len(list_words) > len_stroke:
-                    list_words.append('<br />')
-                list_words.append(word)
-            description = ' '.join(list_words)
+        cropped_text = []
+        count = -count_stroke + 1
+        for word in self.text.split():
+            cropped_text.append(word)
+            if len(' '.join(cropped_text)) > len_stroke * (count_stroke + count):
 
-            while description.count('<br />') <= 4:
-                description+=('<br />')
-            # description = ' '.join(list_words)
-            # description = self.text + ' ' + '&#160' * (
-            #             count_symbols - len(self.text) + len(end_symbols))
+                if count == 0:
+                    cropped_text.append(end_symbols)
+                    break
+                else:
+                    count += 1
+                cropped_text.append('<br />')
 
+        description = ' '.join(cropped_text)
+        while description.count('<br />') <= 4:
+            description += '<br />'
 
-        else:
-            description = self.text[:count_symbols - len(end_symbols)] + end_symbols
         return description
 
     class Meta:
