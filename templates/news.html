@@ -8,7 +8,7 @@
 
     <div class="container-fluid" id="nnte">
         <div class="container-fluid">
-            <h1>Новости</h1>
+            <h2>Новости</h2>
             <p>Новости компании ООО «Нижновтеплоэнерго»</p>
         </div>
     </div>
@@ -20,12 +20,12 @@
                 <div class="card m-1 w-100">
                     <div class="card-body">
                         <div class="container">
-                            {% if new.image %}
-                                <img class="float-left m-1" src="{{ new.image.url }}" width="200">
-                            {% endif %}
                             <a href="{% url 'new' new.id %}">
                                 <h3 class="card-title">{{ new.title }}</h3>
                             </a>
+                         {% if new.image %}
+                                <img class="float-left m-1" src="{{ new.image.url }}" width="200">
+                            {% endif %}
                             <p class="card-text p-1">{{ new.text | safe }}</p>
                             {% if new.file %}
                                 <a href="{{ new.file.url }}"
