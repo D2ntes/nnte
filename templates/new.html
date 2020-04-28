@@ -13,9 +13,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="container" id="new">
-                <h3>заголовок см.комментарий</h3>
-{#            вот это залогок нужно брать из только что-то созданной новости#}
-{#            и передавать его в ленту новостей и на карты на морду#}
+                <h3>{{ new.title }}</h3>
                         {% if new.image %}
                             <img class="float-left m-1" src="{{ new.image.url }}" width="200">
                                 {% endif %}
