@@ -28,7 +28,7 @@ def news(request):
     for new in news:
         object_new = {'id': new.id,
                       'title': new.title,
-                      'text': new.cropped_text(4, 100),
+                      'text': new.cropped_text(2, 100),
                       'image': new.image,
                       'file': new.file,
                       }
