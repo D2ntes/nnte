@@ -75,7 +75,8 @@ def category(request, the_slug):
             'category': category_article,
         }
     else:
-        context = {'category': category_article}
+
+        context = {'list_articles': list_articles, 'category': category_article}
     return render(request, template, context=context)
 
 
