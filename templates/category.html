@@ -16,8 +16,8 @@
 
 
     <div class="container-fluid" id="category">
-    <div class="row justify-content-center">
-        {% for article in list_articles %}
+        <div class="row justify-content-center">
+            {% for article in list_articles %}
                 <div class="container border p-3 m-1 w-75">
                     <a href="{% url 'article' article.id %}">
                         <h3>{{ article.title }}</h3>
@@ -31,18 +31,36 @@
                         {#           href="http://docs.google.com/viewer?url={{ new.file_new.url.get_absolute_url }}">Посмотреть</a>#}
                     {% endif %}
                 </div>
-        {% endfor %}
-    </div>
+            {% endfor %}
+        </div>
     </div>
 
-    <div class="container">
-        {% if prev_page_url %}
-            <a class="button button-primary" href="{{ prev_page_url }}">◀</a>{% endif %}
-        <a class="button disabled" href="">{{ current_page }}</a>
-        {% if next_page_url %}
-            <a class="button button-primary" href="{{ next_page_url }}">▶</a>{% endif %}
-    </div>
-    </div>
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            {% if prev_page_url %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ prev_page_url }}">Предыдущая</a>
+                </li>
+            {% endif %}
+           <li class="page-item"><a class="page-link" href="">{{ current_page }}</a></li>
+            {% if next_page_url %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ next_page_url }}">Следующая</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+
+
+
+{#    <div class="container">#}
+{#        {% if prev_page_url %}#}
+{#            <a class="button button-primary" href="{{ prev_page_url }}">◀</a>{% endif %}#}
+{#        <a class="button disabled" href="">{{ current_page }}</a>#}
+{#        {% if next_page_url %}#}
+{#            <a class="button button-primary" href="{{ next_page_url }}">▶</a>{% endif %}#}
+{#    </div>#}
+
 
 
 {% endblock %}
