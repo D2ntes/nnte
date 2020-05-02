@@ -16,7 +16,7 @@
                 <h5>Вакансии</h5>
                 {% for vacancy in last_vacancies %}
                     <p>
-                    <a href={% url 'vacancy' vacancy.slug %}>{{ vacancy.title }}</a>
+                    <a class="link" href={% url 'vacancy' vacancy.slug %}>{{ vacancy.title }}</a>
                     </p>
                 {% endfor %}
 

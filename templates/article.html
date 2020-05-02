@@ -1,39 +1,38 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-    <div class="container-fluid">
-{#    Почему-то не отображается#}
+    <div class="row">
+    <div class="container-fluid" id="nnte">
         <div class="container">
-            <a href="{% url 'article' article.id %}">
-                <h1 class="card-title">{{ article.title }}</h1>
-            </a>
+            <h2>ООО Нижновтеплоэнерго</h2>
+            <p>Компания ООО «Нижновтеплоэнерго» основана в 2006 г. Молодая динамично развивающаяся
+                теплоснабжающая компания.</p>
         </div>
+    </div>
+</div>
 
-            <div class="row">
-                <div class="col-sm-10">
-                    <div class="container">
-                        <div class="row">
-                            <div class="container">
-                                <h3>{{ new.title }}</h3>
-                                <div class="col-sm-12">
-                                    {{ article.title }}
-                                    <p class="card-text">{{ article.text | safe }}</p>
-                                    {% if article.file %}
-                                        <a href="{{ article.file.url }}"
-                                           class="btn btn-primary">Скачать</a>
-                                        {#            <!-- Просмотр в новом окне -->#}
-                                        {#            <a target="_blank"#}
-                                        {#           href="http://docs.google.com/viewer?url={{ new.file_new.url.get_absolute_url }}">Посмотреть</a>#}
+
+    <div class="row mt-3">
+        <div class="container mt-5">
+{#            <h2 class="card-title"><a href="{% url 'article' article.id %}">{{ article.title }}</a></h2>#}
+            <h2>заголовок</h2>
+        </div>
+        <div class="container">
+            <h3>{{ new.title }}</h3>
+            <div class="col-sm-12">
+                {{ article.title }}
+                <p>{{ article.text | safe }}</p>
+                {% if article.file %}
+                    <a href="{{ article.file.url }}"
+                       class="btn btn-primary mb-5">Скачать</a>
+                    {#            <!-- Просмотр в новом окне -->#}
+                    {#            <a target="_blank"#}
+                    {#           href="http://docs.google.com/viewer?url={{ new.file_new.url.get_absolute_url }}">Посмотреть</a>#}
                                         {#            </div>#}
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </div>
-
-                </div>
+                {% endif %}
             </div>
         </div>
+    </div>
     </div>
 
 {% endblock %}
