@@ -46,29 +46,29 @@
 
 
 
-{#    <nav aria-label="Page navigation example">#}
-{#        <ul class="pagination justify-content-center">#}
-{#            {% if prev_page_url %}#}
-{#                <li class="page-item">#}
-{#                    <a class="page-link" href="{{ prev_page_url }}">Previous</a>#}
-{#                </li>#}
-{#            {% endif %}#}
-{#            <li class="page-item"><a class="page-link" href="{{ current_page }}">1</a></li>#}
-{#            {% if next_page_url %}#}
-{#                <li class="page-item">#}
-{#                    <a class="page-link" href="{{ next_page_url }}">Next</a>#}
-{#                </li>#}
-{#            {% endif %}#}
-{#        </ul>#}
-{#    </nav>#}
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            {% if prev_page_url %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ prev_page_url }}">Предыдущая</a>
+                </li>
+            {% endif %}
+            <li class="page-item"><a class="page-link" href="">{{ current_page }}</a></li>
+            {% if next_page_url %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ next_page_url }}">Следующая</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
 
-    <div class="container">
-        {% if prev_page_url %}
-            <a class="button button-primary" href="{{ prev_page_url }}">◀</a>{% endif %}
-        <a class="button disabled" href="">{{ current_page }}</a>
-        {% if next_page_url %}
-            <a class="button button-primary" href="{{ next_page_url }}">▶</a>{% endif %}
-    </div>
+{#    <div class="container">#}
+{#        {% if prev_page_url %}#}
+{#            <a class="button button-primary" href="{{ prev_page_url }}">◀</a>{% endif %}#}
+{#        <a class="button disabled" href="">{{ current_page }}</a>#}
+{#        {% if next_page_url %}#}
+{#            <a class="button button-primary" href="{{ next_page_url }}">▶</a>{% endif %}#}
+{#    </div>#}
 
 {% endblock %}
 
