@@ -108,7 +108,6 @@ def new(request, id_new):
 def article(request, id_article):
     template = 'article.html'
     article = Article.objects.get(id=id_article)
-    print(request, id_article, article)
     context = {'article': article}
     return render(request, template, context)
 
