@@ -1,5 +1,5 @@
 .navbar {
-    background-color: #136771;
+    background-color: #028C99;
 }
 
 
@@ -62,8 +62,13 @@
 
 .footer {
     padding-top: 2em;
-    background-color: #136771;
+    background-color: #028C99;
 }
+.link {
+    color: #18335E;
+}
+
+
 
 #category {
   background-color: #eff6f7;
