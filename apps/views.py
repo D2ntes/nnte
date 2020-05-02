@@ -28,7 +28,7 @@ def news(request):
     for new in news:
         object_new = {'id': new.id,
                       'title': new.title,
-                      'text': new.cropped_text(4, 100),
+                      'text': new.cropped_text(2, 100),
                       'image': new.image,
                       'file': new.file,
                       }
@@ -75,7 +75,8 @@ def category(request, the_slug):
             'category': category_article,
         }
     else:
-        context = {'category': category_article}
+
+        context = {'list_articles': list_articles, 'category': category_article}
     return render(request, template, context=context)
 
 
@@ -107,7 +108,6 @@ def new(request, id_new):
 def article(request, id_article):
     template = 'article.html'
     article = Article.objects.get(id=id_article)
-    print(request, id_article, article)
     context = {'article': article}
     return render(request, template, context)
 

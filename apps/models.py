@@ -11,9 +11,13 @@ class Post(models.Model):
     published_at = models.DateTimeField(default=now, editable=True,
                                         verbose_name='Дата публикации', )
 
+    def __str__(self):
+        return self.title
+
 
 class New(Post):
-    file = models.FileField(upload_to='news/', null=True, blank=True, verbose_name='Документ')
+    file = models.FileField(upload_to='news/', null=True, blank=True, max_length=120,
+                            verbose_name='Документ')
     image = models.ImageField(upload_to='image/', null=True, blank=True,
                               verbose_name='Изображение', )
 
@@ -44,7 +48,8 @@ class New(Post):
 
 
 class Article(Post):
-    file = models.FileField(upload_to='article/', null=True, blank=True, verbose_name='Документ')
+    file = models.FileField(upload_to='article/', null=True, blank=True, max_length=120,
+                            verbose_name='Документ')
     text = models.TextField(null=True, max_length=10000, blank=True, verbose_name='Текст')
     category = models.ForeignKey('Category', on_delete=models.SET_NULL,
                                  verbose_name='Категория', related_name='category', null=True, )
@@ -52,6 +57,9 @@ class Article(Post):
     class Meta:
         verbose_name = 'Статья'
         verbose_name_plural = 'Статьи'
+
+    def __str__(self):
+        return self.title
 
 
 class Category(models.Model):
@@ -106,6 +114,9 @@ class About(models.Model):
     tel = models.CharField(max_length=20, unique=True, verbose_name='Телефон', )
     fax = models.CharField(max_length=20, unique=True, verbose_name='Факс', )
     email = models.EmailField(max_length=20, unique=True, verbose_name='E-mail', )
+
+    def __str__(self):
+        return self.name
 
 
 class Company(SingletonModel, About):
