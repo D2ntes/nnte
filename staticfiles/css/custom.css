@@ -2,7 +2,6 @@
     background-color: #028C99;
 }
 
-
 .dropdown-menu {
     background-color: #136771;
 }
@@ -11,12 +10,10 @@
     background-image: url("https://cdn.pixabay.com/photo/2019/05/23/11/44/factory-4223748_960_720.jpg");
     background-size: cover;
     background-position: center;
-    margin-left: 0;
     padding-top: 5em;
     padding-bottom: 5em;
     color: #0b1da1;
 }
-
 
 .cke_button_label {
     text-transform: uppercase;
