@@ -34,8 +34,6 @@ urlpatterns = [
     url(r'^favicon\.ico$', RedirectView.as_view(url='/static/favicon.ico'), name='favicon'),
     path('vacancy/<slug:the_slug>/', vacancy, name='vacancy'),
     path('vacancies/', vacancies, name='vacancies'),
-    url(r'^back_url/', back_url),
-
 ]
 
 # В конце файла:

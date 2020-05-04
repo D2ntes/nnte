@@ -136,5 +136,3 @@ def vacancy(request, the_slug):
     return render(request, template, context)
 
 
-def back_url(request):
-    return request.META.get('HTTP_REFERER')
