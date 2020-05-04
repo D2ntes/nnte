@@ -112,7 +112,7 @@ def article(request, id_article):
 def vacancies(request):
     template = 'vacancies.html'
     list_vacancy = []
-    obj_on_page = 4
+    obj_on_page = 2
     vacancies = Vacancy.objects.all().order_by('-published_at')
     for vacancy in vacancies:
         object_vacancy = {
