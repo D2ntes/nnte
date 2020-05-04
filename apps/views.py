@@ -23,7 +23,7 @@ def index(request):
 def news(request):
     template = 'news.html'
     list_news = []
-    obj_on_page = 5
+    obj_on_page = 2
     news = New.objects.all().order_by('-published_at')
     for new in news:
         object_new = {'id': new.id,
@@ -37,7 +37,7 @@ def news(request):
         stops_page, current_page, prev_page_url, next_page_url = pagination(request, list_news,
                                                                             obj_on_page)
 
-        context = {'news'
+        context = {
                    'list_news': stops_page,
                    'current_page': current_page,
                    'prev_page_url': prev_page_url,
@@ -64,19 +64,19 @@ def category(request, the_slug):
         }
         list_articles.append(object_article)
 
-    if len(list_articles) > obj_on_page:
-        stops_page, current_page, prev_page_url, next_page_url = pagination(request, list_articles,
-                                                                            obj_on_page)
-        context = {
-            'list_articles': stops_page,
-            'current_page': current_page,
-            'prev_page_url': prev_page_url,
-            'next_page_url': next_page_url,
-            'category': category_article,
-        }
-    else:
-
-        context = {'list_articles': list_articles, 'category': category_article}
+    # if len(list_articles) > obj_on_page:
+    stops_page, current_page, prev_page_url, next_page_url = pagination(request, list_articles,
+                                                                        obj_on_page)
+    context = {
+        'stops_page': stops_page,
+        'current_page': current_page,
+        'prev_page_url': prev_page_url,
+        'next_page_url': next_page_url,
+        'category': category_article,
+        'list_articles': list_articles,
+    }
+    # else:
+    #     context = {'list_articles': list_articles, 'category': category_article}
     return render(request, template, context=context)
 
 
