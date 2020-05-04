@@ -21,7 +21,7 @@
             <span>Дата публикации: {{ vacancy.published_at | date:"d M Y" }}</span>
         </div>
          <div class="container justify-content-left mt-5">
-             <span><a href="#">Назад</a></span>
+             <span><a href="{{ request.META.HTTP_REFERER }}">Назад</a></span>
         </div>
      </div>
 </div>

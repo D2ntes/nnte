@@ -52,7 +52,7 @@ def news(request):
 def category(request, the_slug):
     template = 'category.html'
     list_articles = []
-    obj_on_page = 10
+    obj_on_page = 2
     category_article = Category.objects.get(slug=the_slug)
     articles = Article.objects.filter(category=category_article.id).order_by('-published_at')
     for article in articles:
@@ -64,19 +64,16 @@ def category(request, the_slug):
         }
         list_articles.append(object_article)
 
-    # if len(list_articles) > obj_on_page:
     stops_page, current_page, prev_page_url, next_page_url = pagination(request, list_articles,
                                                                         obj_on_page)
     context = {
-        'stops_page': stops_page,
+        'list_articles': stops_page,
         'current_page': current_page,
         'prev_page_url': prev_page_url,
         'next_page_url': next_page_url,
         'category': category_article,
-        'list_articles': list_articles,
     }
-    # else:
-    #     context = {'list_articles': list_articles, 'category': category_article}
+
     return render(request, template, context=context)
 
 
@@ -115,6 +112,7 @@ def article(request, id_article):
 def vacancies(request):
     template = 'vacancies.html'
     list_vacancy = []
+    obj_on_page = 4
     vacancies = Vacancy.objects.all().order_by('-published_at')
     for vacancy in vacancies:
         object_vacancy = {
@@ -125,7 +123,14 @@ def vacancies(request):
         }
         list_vacancy.append(object_vacancy)
 
-    context = {'list_vacancy': list_vacancy}
+    stops_page, current_page, prev_page_url, next_page_url = pagination(request, list_vacancy,
+                                                                        obj_on_page)
+    context = {
+        'list_vacancy': stops_page,
+        'current_page': current_page,
+        'prev_page_url': prev_page_url,
+        'next_page_url': next_page_url,
+    }
     return render(request, template, context)
 
 
