@@ -12,10 +12,10 @@
         </div>
     </div>
 
-    <div class="container" id="">
-        <div class="container" id="">
+    <div class="row">
+        <div class="container">
             {% for vacancy in list_vacancy %}
-                <div class="card">
+                <div class="card m-3">
                     <div class="card-body">
                         <div class="container">
                             <a href="{% url 'vacancy' vacancy.slug %}">
@@ -24,7 +24,6 @@
                             <p>Дата публикации: {{ vacancy.published_at | date:"d M Y" }}</p>
                         </div>
                     </div>
-
                 </div>
 
             {% endfor %}
