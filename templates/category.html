@@ -35,21 +35,22 @@
         </div>
     </div>
 
-    <nav aria-label="Page navigation example">
+    <nav aria-label=Pagination">
         <ul class="pagination justify-content-center">
             {% if prev_page_url %}
                 <li class="page-item">
-                    <a class="page-link" href="{{ prev_page_url }}">Предыдущая</a>
+                    <a class="page-link" href="{{ prev_page_url }}">◀</a>
                 </li>
             {% endif %}
-           <li class="page-item"><a class="page-link" href="">{{ current_page }}</a></li>
+            <li class="page-item"><a class="page-link" href="">{{ current_page }}</a></li>
             {% if next_page_url %}
                 <li class="page-item">
-                    <a class="page-link" href="{{ next_page_url }}">Следующая</a>
+                    <a class="page-link" href="{{ next_page_url }}">▶</a>
                 </li>
             {% endif %}
         </ul>
     </nav>
+
 
 
 
