@@ -134,3 +134,7 @@ def vacancy(request, the_slug):
     vacancy = Vacancy.objects.get(slug=the_slug)
     context = {'vacancy': vacancy}
     return render(request, template, context)
+
+
+def back_url(request):
+    return request.META.get('HTTP_REFERER')
