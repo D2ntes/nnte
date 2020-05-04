@@ -1,27 +1,34 @@
 <div class="row align-items-center">
     <div class="nav justify-content-center">
-        <ul class="nav nav-tabs pt-3 text-secondary w-100 justify-content-center" id="myTab" role="tablist">
+        <ul class="nav nav-tabs pt-3 text-secondary w-100 justify-content-center" id="myTab"
+            role="tablist">
             <li class="nav-item">
-             <a class="nav-link active" id="faq-tab" data-toggle="tab" href="#faq" role="tab" aria-controls="home" aria-selected="true">Часто задаваемые вопросы</a>
+                <a class="nav-link active" id="faq-tab" data-toggle="tab" href="#faq" role="tab"
+                   aria-controls="home" aria-selected="true">Часто задаваемые вопросы</a>
             </li>
             <li class="nav-item">
-             <a class="nav-link" id="prep-tab" data-toggle="tab" href="#prep" role="tab" aria-controls="profile" aria-selected="false">Подготовка к отопительному сезону</a>
+                <a class="nav-link" id="prep-tab" data-toggle="tab" href="#prep" role="tab"
+                   aria-controls="profile" aria-selected="false">Подготовка к отопительному
+                    сезону</a>
             </li>
             <li class="nav-item">
-             <a class="nav-link" id="counters-tab" data-toggle="tab" href="#counters" role="tab" aria-controls="contact" aria-selected="false">Установка счетчиков</a>
+                <a class="nav-link" id="counters-tab" data-toggle="tab" href="#counters" role="tab"
+                   aria-controls="contact" aria-selected="false">Установка счетчиков</a>
             </li>
         </ul>
         {# в ссылки абзацах можно(и нужно) вставлять ссылки на другие вкладки#}
         {# ссылки в меню трогать нельзя, айди тоже#}
         <div class="tab-content text-start" id="myTabContent">
-        <div class="tab-pane fade show active" id="faq" role="tabpanel" aria-labelledby="home-tab">
-            <div class="container">
-                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
- width="60.000000pt" height="60.000000pt" viewBox="0 0 1280.000000 1280.000000"
- preserveAspectRatio="xMidYMid meet" class="float-left m-1">
-<g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"
-fill="#009688" stroke="none">
-<path d="M5970 12090 c-417 -39 -761 -113 -1094 -236 -154 -56 -404 -178 -550
+            <div class="tab-pane fade show active" id="faq" role="tabpanel"
+                 aria-labelledby="home-tab">
+                <div class="container">
+                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                         width="60.000000pt" height="60.000000pt"
+                         viewBox="0 0 1280.000000 1280.000000"
+                         preserveAspectRatio="xMidYMid meet" class="float-left m-1">
+                        <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"
+                           fill="#009688" stroke="none">
+                            <path d="M5970 12090 c-417 -39 -761 -113 -1094 -236 -154 -56 -404 -178 -550
 -267 -328 -202 -651 -502 -876 -817 -340 -475 -557 -1060 -660 -1783 -12 -81
 -19 -151 -16 -156 3 -5 47 -34 96 -65 l91 -56 672 -80 c370 -44 685 -81 702
 -83 l29 -2 28 150 c166 905 518 1459 1115 1759 267 133 553 196 900 196 485 0
@@ -31,26 +38,27 @@ fill="#009688" stroke="none">
 c6 302 37 709 69 895 57 336 189 636 393 890 94 118 451 467 766 750 914 822
 1312 1312 1528 1882 223 586 235 1285 32 1901 -150 453 -433 881 -816 1231
 -544 498 -1190 775 -2044 876 -162 20 -828 29 -985 15z"/>
-<path d="M5581 2590 c-20 -98 -21 -121 -21 -920 l0 -820 810 0 810 0 0 828
+                            <path d="M5581 2590 c-20 -98 -21 -121 -21 -920 l0 -820 810 0 810 0 0 828
 c-1 740 -3 836 -18 917 l-17 90 -771 3 -771 2 -22 -100z"/>
-</g>
-</svg>
+                        </g>
+                    </svg>
+                    <p class="pt-1 m-1"><a class="text-secondary" href="">
+                        {{ most_questions.question }}
+                    </a>
+                    </p>
 
-                <p class="pt-1 m-1"><a class="text-secondary" href="#">
-                    Наиболее востребованая информация о работе нашей компании<br>
-                    и функционировании системы теплоснабжения в городе...........<br>
-                    .............................................................<br>
-                </a>
-                </p>
+
+                </div>
             </div>
-        </div>
-        <div class="tab-pane fade" id="prep" role="tabpanel" aria-labelledby="profile-tab">
-            <div class="container"><svg version="1.0" xmlns="http://www.w3.org/2000/svg"
- width="60.000000pt" height="60.000000pt" viewBox="0 0 1280.000000 1218.000000"
- preserveAspectRatio="xMidYMid meet" class="float-left m-1">
-<g transform="translate(0.000000,1218.000000) scale(0.100000,-0.100000)"
-fill="#009688" stroke="none">
-<path d="M6625 11955 c-351 -38 -667 -101 -1015 -202 -143 -41 -165 -51 -202
+            <div class="tab-pane fade" id="prep" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="container">
+                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                         width="60.000000pt" height="60.000000pt"
+                         viewBox="0 0 1280.000000 1218.000000"
+                         preserveAspectRatio="xMidYMid meet" class="float-left m-1">
+                        <g transform="translate(0.000000,1218.000000) scale(0.100000,-0.100000)"
+                           fill="#009688" stroke="none">
+                            <path d="M6625 11955 c-351 -38 -667 -101 -1015 -202 -143 -41 -165 -51 -202
 -90 -79 -83 -76 -200 7 -280 36 -34 56 -44 114 -57 91 -21 112 -20 218 5 122
 29 374 23 538 -14 469 -106 940 -359 1279 -687 250 -243 380 -472 393 -697 7
 -117 -7 -192 -58 -300 -58 -120 -72 -199 -66 -363 4 -108 10 -151 31 -215 l26
@@ -80,23 +88,24 @@ fill="#009688" stroke="none">
 1564 -479 402 -979 622 -1616 712 -156 22 -706 28 -875 9z m4190 -10419 c88
 -40 135 -114 135 -211 0 -91 -45 -167 -121 -206 -159 -80 -342 30 -342 206 0
 172 173 284 328 211z"/>
-</g>
-</svg>
-                <p class="pt-1 m-1"><a class="text-secondary" href="#">
-                    Работа компании "Нижновтеплоэнерго" в межотопительный период<br>
-                    График проведения плановых работ и других мероприятий.......<br>
-                </a>
-                </p>
+                        </g>
+                    </svg>
+                    <p class="pt-1 m-1"><a class="text-secondary" href="#">
+                        Работа компании "Нижновтеплоэнерго" в межотопительный период<br>
+                        График проведения плановых работ и других мероприятий.......<br>
+                    </a>
+                    </p>
+                </div>
             </div>
-        </div>
-        <div class="tab-pane fade" id="counters" role="tabpanel" aria-labelledby="contact-tab">
-            <div class="container">
-                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
- width="60.000000pt" height="60.000000pt" viewBox="0 0 1280.000000 1280.000000"
- preserveAspectRatio="xMidYMid meet" class="float-left m-1">
-<g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"
-fill="#009688" stroke="none">
-<path d="M6100 12794 c-374 -25 -548 -44 -810 -90 -1350 -236 -2613 -918
+            <div class="tab-pane fade" id="counters" role="tabpanel" aria-labelledby="contact-tab">
+                <div class="container">
+                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                         width="60.000000pt" height="60.000000pt"
+                         viewBox="0 0 1280.000000 1280.000000"
+                         preserveAspectRatio="xMidYMid meet" class="float-left m-1">
+                        <g transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"
+                           fill="#009688" stroke="none">
+                            <path d="M6100 12794 c-374 -25 -548 -44 -810 -90 -1350 -236 -2613 -918
 -3548 -1917 -915 -977 -1488 -2166 -1676 -3477 -49 -339 -60 -507 -60 -910 0
 -403 11 -571 60 -910 176 -1225 698 -2364 1514 -3300 136 -156 435 -456 598
 -598 971 -851 2159 -1386 3427 -1541 306 -38 447 -46 795 -46 348 0 489 8 795
@@ -126,22 +135,22 @@ l0 37 715 0 715 0 0 250 0 250 -715 0 -715 0 0 58 c0 83 27 364 51 527 59 410
 116 c111 64 207 121 214 127 12 11 -10 51 -575 1029 l-132 228 183 89 c548
 266 1091 435 1672 519 173 25 473 53 486 46 5 -4 9 -287 9 -718 l0 -712 245 0
 245 0 0 716 c0 394 2 718 4 720 6 6 251 -7 387 -20z"/>
-<path d="M6240 6129 c-172 -29 -329 -176 -376 -353 -39 -147 6 -322 113 -437
+                            <path d="M6240 6129 c-172 -29 -329 -176 -376 -353 -39 -147 6 -322 113 -437
 96 -103 206 -150 348 -150 143 0 252 47 351 153 l48 52 481 -33 c264 -17 741
 -50 1060 -71 319 -22 915 -62 1325 -90 410 -28 974 -66 1255 -85 280 -19 516
 -35 525 -34 17 1 -70 17 -420 78 -321 55 -1179 203 -1490 256 -140 24 -520 89
 -845 145 -561 97 -918 158 -1570 270 -280 47 -291 50 -310 77 -90 124 -208
 203 -335 223 -74 11 -84 11 -160 -1z"/>
-</g>
-</svg>
-                <p class="pt-1 m-1"><a class="text-secondary" href="#">
-                    Стоимость работ, порядок оформления заявок и цена оборудования.<br>
-                    Ознакомьтесь с информацией перед вызовом специалиста и пользуйтесь<br>
-                    услугами только проверенных компаний.
-                </a>
-                </p>
+                        </g>
+                    </svg>
+                    <p class="pt-1 m-1"><a class="text-secondary" href="#">
+                        Стоимость работ, порядок оформления заявок и цена оборудования.<br>
+                        Ознакомьтесь с информацией перед вызовом специалиста и пользуйтесь<br>
+                        услугами только проверенных компаний.
+                    </a>
+                    </p>
+                </div>
             </div>
-        </div>
         </div>
     </div>
 </div>
