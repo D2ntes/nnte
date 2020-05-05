@@ -21,20 +21,21 @@
         <div class="container mt-5">
             <div id="accordion">
 
-                  {% for question in questions %}
+                {% for question in questions %}
 
                     <div class="card">
                         <div class="card-header" id="{{ question }}">
                             <h5 class="mb-0">
                                 <button class="btn btn-link" data-toggle="collapse"
-                                        data-target="#{{ question }}" aria-expanded="true"
-                                        aria-controls="{{ question }}">
-                                    {{ question.question }}
+                                        data-target="#{{ question.id }}" aria-expanded="false"
+                                        aria-controls="{{ question.id }}">
+                                    {{ question.question }} {{ question.id }}
                                 </button>
                             </h5>
                         </div>
 
-                        <div id="{{ question }}" class="collapse show" aria-labelledby="{{ question }}"
+                        <div id="{{ question.id }}" class="collapse show"
+                             aria-labelledby="{{ question }}"
                              data-parent="#accordion">
                             <div class="card-body">
                                 {{ question.answer }}
@@ -45,51 +46,28 @@
                 {% endfor %}
 
 
-
-                <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo"
-                aria-expanded="false" aria-controls="collapseTwo">
-          Разворачиваемая панель #2
-        </button>
-      </h5>
-    </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-      <div class="card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life
-          accusamus terry richardson ad squid. 3 wolf moon officia
-          heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-{#у сущности question должно быть два свойства "вопрос" и "номер"#}
-{# к примеру (пишу в произвольном синтаксисе) question = {name: "вопрос", number: "номер"}#}
-            {# внизу пример, как куда расставить, всё строки #}
-{#            другими словами передавать надо question.name и question.number       #}
-{#                <div class="card">#}
-{#    <div class="card-header" id="вопрос">#}
-{#      <h5 class="mb-0">#}
-{#        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#номер" #}
-{#                  aria-expanded="false" aria-controls="номер">#}
-{#          Разворачиваемая панель #3#}
-{#        </button>#}
-{#      </h5>#}
-{#    </div>#}
-{#    <div id="номер" class="collapse" aria-labelledby="вопрос" data-parent="#accordion">#}
-{#      <div class="card-body">#}
-{#        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry#}
-{#          richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard#}
-{#      </div>#}
-{#    </div>#}
-{#  </div>#}
             </div>
-
-
-
-
-
         </div>
+        {#у сущности question должно быть два свойства "вопрос" и "номер"#}
+        {# к примеру (пишу в произвольном синтаксисе) question = {name: "вопрос", number: "номер"}#}
+        {# внизу пример, как куда расставить, всё строки #}
+        {#            другими словами передавать надо question.name и question.number       #}
+        {#                <div class="card">#}
+        {#    <div class="card-header" id="вопрос">#}
+        {#      <h5 class="mb-0">#}
+        {#        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#номер" #}
+        {#                  aria-expanded="false" aria-controls="номер">#}
+        {#          Разворачиваемая панель #3#}
+        {#        </button>#}
+        {#      </h5>#}
+        {#    </div>#}
+        {#    <div id="номер" class="collapse" aria-labelledby="вопрос" data-parent="#accordion">#}
+        {#      <div class="card-body">#}
+        {#        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry#}
+        {#          richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard#}
+        {#      </div>#}
+        {#    </div>#}
+        {#  </div>#}
     </div>
 
 {% endblock %}
