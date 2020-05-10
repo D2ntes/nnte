@@ -2,18 +2,18 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-4">
-                <a class="dropdown-item" href={% url 'contacts' %}><h5>Контакты</h5></a>
+                <h5><a href={% url 'contacts' %}>Контакты</a></h5>
                 <p>{{ company.name }}</p>
                 <p>{{ company.tel }}</p>
                 <p>{{ company.fax }}</p>
                 <p>{{ company.email }}</p>
             </div>
             <div class="col-sm-4">
-                <h5>Социальные сети</h5>
+                <h5><a href="#">Социальные сети</a></h5>
                 <p>Lorem ipsum dolor</p>
             </div>
             <div class="col-sm-4">
-                <a class="dropdown-item" href={% url 'vacancies' %}><h5>Вакансии</h5></a>
+                <h5><a href={% url 'vacancies' %}>Вакансии</a></h5>
                 {% for vacancy in last_vacancies %}
                     <p>
                         <a class="link"
