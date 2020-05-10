@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import New, Category, Article, Vacancy, Question
+from .models import New, Category, Article, Vacancy, Question, Department
 from django.core.paginator import Paginator
 
 
@@ -145,4 +145,11 @@ def questions(request):
     template = 'questions.html'
     questions = Question.objects.all()
     context = {'questions': questions}
+    return render(request, template, context)
+
+
+def contacts(request):
+    template = 'contacts.html'
+    contacts = Department.objects.all()
+    context = {'contacts': contacts}
     return render(request, template, context)
