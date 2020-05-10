@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Вакансии
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid" id="nnte">
+        <div class="container-fluid">
+            <h1>Контакты</h1>
+            <p>Контакты компании ООО «Нижновтеплоэнерго»</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="container">
+            {% for contact in contacts %}
+                <div class="card m-3">
+                    <div class="card-body">
+                        <div class="container">
+                            <h3 class="card-title">{{ contact.name }}</h3>
+                            <p>{{ contact.address }}</p>
+                            <p>{{ contact.tel }}</p>
+                            <p>{{ contact.fax }}</p>
+                            <p>{{ contact.email }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
+
+
+
+

@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from apps.views import index, news, category, new, article, vacancy, vacancies, questions
+from apps.views import index, news, category, new, article, vacancy, vacancies, questions, contacts
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
@@ -35,6 +35,7 @@ urlpatterns = [
     path('vacancy/<slug:the_slug>/', vacancy, name='vacancy'),
     path('vacancies/', vacancies, name='vacancies'),
     path('questions/', questions, name='questions'),
+    path('contacts/', contacts, name='contacts'),
 ]
 
 # В конце файла:
