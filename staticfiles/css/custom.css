@@ -86,5 +86,10 @@ h1 {
     cursor: pointer;
 }
 
+.btn-link {
+    white-space: normal;
+}
+
+
 
 
