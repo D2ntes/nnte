@@ -35,8 +35,8 @@ h1 {
     background-image: url("https://cdn.pixabay.com/photo/2018/06/30/23/53/stadium-3508630_960_720.jpg");
 }
 
-#news-header {
-    color: white;
+.news-header {
+    color: #18335E;
 }
 
 #news {
@@ -73,7 +73,7 @@ h1 {
 }
 
 .footerlink {
-     color: #0b1da1;
+     color: #18335E;
 }
 
 #category {
