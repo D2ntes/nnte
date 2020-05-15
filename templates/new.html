@@ -16,12 +16,12 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="container" id="new">
+            <div class="container p-3" id="new">
                 <h3>{{ new.title }}</h3>
                         {% if new.image %}
                             <img class="float-left m-1" src="{{ new.image.url }}" width="200">
                                 {% endif %}
-                                <p class="card-text">{{ new.text | safe }}</p>
+                            <p class="card-text">{{ new.text | safe }}</p>
                                 {% if new.file %}
                                     <a href="{{ new.file.url }}"
                                        class="btn btn-primary float-right">Скачать</a>
@@ -31,8 +31,11 @@
                                     {#            </div>#}
                                 {% endif %}
             </div>
-        <div class="container justify-content-left mt-5">
+            <div class="container justify-content-left mt-5">
              <span><a href="{{ request.META.HTTP_REFERER }}">Назад</a></span>
+             </div>
+        <div>
+             <a href="#" class="btn btn-primary mr-5 float-right">Скачать</a>
         </div>
         </div>
     </div>
