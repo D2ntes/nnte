@@ -36,7 +36,7 @@ h1 {
 }
 
 .news-header {
-    color: #18335E;
+    color: #27D6EB;
 }
 
 #news {
@@ -46,7 +46,7 @@ h1 {
 }
 
 #new {
-    min-height: 16em;
+    min-height: 18em;
 }
 
 
@@ -83,7 +83,7 @@ h1 {
 #category {
     background-color: #eff6f7;
     background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23cbe1d8' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
-    min-height: 15em;
+    min-height: 18em;
 }
 
 #vacancy {
