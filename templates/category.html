@@ -15,10 +15,10 @@
     </div>
 
 
-    <div class="container-fluid" id="category">
+    <div class="container-fluid pt-3" id="category">
       <div class="row">
         {% for article in list_articles %}
-                <div class="container border mt-5 p-3 w-75">
+                <div class="container border mt-3 p-3 w-75">
                     <h3><a href="{% url 'article' article.id %}">{{ article.title }}</a></h3>
                     <p>{{ article.text | safe }}</p>
                     {% if article.file %}
