@@ -9,19 +9,17 @@
 
 
     <div class="container-fluid" id="nnte">
-        <div class="container-fluid">
+        <div class="container">
             <h1>{{ category }} </h1>
         </div>
     </div>
 
 
     <div class="container-fluid" id="category">
-        <div class="row justify-content-center">
-            {% for article in list_articles %}
-                <div class="container border p-3 m-1 w-75">
-                    <a href="{% url 'article' article.id %}">
-                        <h3>{{ article.title }}</h3>
-                    </a>
+      <div class="row">
+        {% for article in list_articles %}
+                <div class="container border mt-5 p-3 w-75">
+                    <h3><a href="{% url 'article' article.id %}">{{ article.title }}</a></h3>
                     <p>{{ article.text | safe }}</p>
                     {% if article.file %}
                         <a href="{{ article.file.url }}"
@@ -32,7 +30,7 @@
                     {% endif %}
                 </div>
             {% endfor %}
-        </div>
+      </div>
     </div>
 
     {% include 'pagination.html' %}
