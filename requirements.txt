@@ -13,7 +13,7 @@ mccabe==0.6.1
 mdown==2019.4.13
 mkdir==2019.4.13
 orderdict==2019.9.25
-Pillow==7.1.1
+Pillow==8.1.1
 public==2019.4.13
 pycodestyle==2.5.0
 readme-md==2019.1.28
